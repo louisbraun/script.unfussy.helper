@@ -1,0 +1,50 @@
+[
+    {
+        "header": "Live TV",
+        "category": 0,
+        "type": 0,
+        "style": 0,
+        "limit": 30,
+        "visible": true
+    },
+    {
+        "header": "TV Aufnahmen",
+        "category": 0,
+        "type": 1,
+        "style": 0,
+        "limit": 20,
+        "visible": true
+    },
+    {
+        "header": "Begonnene Filme",
+        "category": 1,
+        "type": 0,
+        "style": 0,
+        "limit": 20,
+        "visible": true
+    },
+    {
+        "header": "Neue Filme",
+        "category": 1,
+        "type": 1,
+        "style": 0,
+        "limit": 20,
+        "visible": true
+    },
+    {
+        "header": "Anstehende Episoden",
+        "category": 2,
+        "type": 1,
+        "style": 0,
+        "limit": 20,
+        "visible": true
+    },
+    {
+        "header": "Neue Episoden",
+        "category": 2,
+        "type": 0,
+        "style": 0,
+        "limit": 20,
+        "visible": true
+    }
+]

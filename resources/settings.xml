@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="128">
+        <setting id="log" label="666" type="bool" default="false"/>
+        <setting id="debuglog" label="20191" type="bool" default="false"/>
+    </category>
+</settings>

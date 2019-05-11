@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <allowoverlay>no</allowoverlay>
+    <onload>ClearProperty(showdetail)</onload>
+    <defaultcontrol always="true">100</defaultcontrol>
+    <controls>
+        <control type="group">
+            <include>close_slight_left</include>
+            <width>600</width>
+            <control type="image">
+                <left>101</left>
+                <width>1</width>
+                <texture colordiffuse="border">colors/white.png</texture>
+            </control>
+            <control type="fixedlist" id="12">
+                <focusposition>1</focusposition>
+                <orientation>vertical</orientation>
+                <scrolltime tween="cubic" easing="out">400</scrolltime>
+                <itemlayout width="100" height="360">
+                    <include content="pvr_channelsosd_groupitem" />
+                </itemlayout>
+                <focusedlayout width="100" height="360">
+                    <include content="pvr_channelsosd_groupitem">
+                        <param name="active" value="true" />
+                    </include>
+                </focusedlayout>
+            </control>
+            <control type="list" id="13">
+                <left>100</left>
+                <width>680</width>
+                <orientation>vertical</orientation>
+                <scrolltime tween="cubic" easing="out">400</scrolltime>
+                <itemlayout width="680" height="100">
+                    <include content="pvr_channelsosd_groupchannelitem" />
+                </itemlayout>
+                <focusedlayout width="680" height="100">
+                    <include content="pvr_channelsosd_groupchannelitem">
+                        <param name="active" value="true" />
+                    </include>
+                </focusedlayout>
+            </control>
+        </control>
+        <control type="group" id="14">
+            <include>pvr_osd_groups_detail</include>
+        </control>
+    </controls>
+</window>

@@ -1,0 +1,440 @@
+[
+    {
+        "label": "342",
+        "thumb": "icons/mainmenu/movies.png",
+        "actiontype": 0,
+        "action": 0,
+        "visible": true,
+        "submenu": [
+          {
+            "label": "20382",
+            "actiontype": 0,
+            "action": 1,
+            "visible": true,
+            "thumb": "DefaultRecentlyAddedMovies.png"
+          },
+          {
+            "label": "135",
+            "actiontype": 0,
+            "action": 2,
+            "visible": true,
+            "thumb": "DefaultGenre.png"
+          },
+          {
+            "label": "342",
+            "actiontype": 0,
+            "action": 0,
+            "visible": true,
+            "thumb": "DefaultMovies.png"
+          },
+          {
+            "label": "652",
+            "actiontype": 0,
+            "action": 3,
+            "visible": true,
+            "thumb": "DefaultYear.png"
+          },
+          {
+            "label": "344",
+            "actiontype": 0,
+            "action": 4,
+            "visible": true,
+            "thumb": "DefaultActor.png"
+          },
+          {
+            "label": "20348",
+            "actiontype": 0,
+            "action": 5,
+            "visible": true,
+            "thumb": "DefaultDirector.png"
+          },
+          {
+            "label": "20388",
+            "actiontype": 0,
+            "action": 6,
+            "visible": true,
+            "thumb": "DefaultStudios.png"
+          },
+          {
+            "label": "20434",
+            "actiontype": 0,
+            "action": 7,
+            "visible": true,
+            "thumb": "DefaultSets.png"
+          },
+          {
+            "label": "20451",
+            "actiontype": 0,
+            "action": 8,
+            "visible": true,
+            "thumb": "DefaultCountry.png"
+          },
+          {
+            "label": "20459",
+            "actiontype": 0,
+            "action": 9,
+            "visible": true,
+            "thumb": "DefaultTags.png"
+          }
+        ]
+    },
+    {
+        "label": "20343",
+        "thumb": "icons/mainmenu/tv.png",
+        "actiontype": 1,
+        "action": 0,
+        "visible": true,
+        "submenu": [
+          {
+            "label": "20382",
+            "actiontype": 1,
+            "action": 1,
+            "visible": true,
+            "thumb": "DefaultRecentlyAddedEpisodes.png"
+          },
+          {
+            "label": "575",
+            "actiontype": 1,
+            "action": 2,
+            "visible": true,
+            "thumb": "DefaultInProgressShows.png"
+          },
+          {
+            "label": "135",
+            "actiontype": 1,
+            "action": 3,
+            "visible": true,
+            "thumb": "DefaultGenre.png"
+          },
+          {
+            "label": "20343",
+            "actiontype": 1,
+            "action": 0,
+            "visible": true,
+            "thumb": "DefaultTVShows.png"
+          },
+          {
+            "label": "652",
+            "actiontype": 1,
+            "action": 4,
+            "visible": true,
+            "thumb": "DefaultYear.png"
+          },
+          {
+            "label": "344",
+            "actiontype": 1,
+            "action": 5,
+            "visible": true,
+            "thumb": "DefaultActor.png"
+          },
+          {
+            "label": "20348",
+            "actiontype": 1,
+            "action": 6,
+            "visible": true,
+            "thumb": "DefaultDirector.png"
+          },
+          {
+            "label": "20388",
+            "actiontype": 1,
+            "action": 7,
+            "visible": true,
+            "thumb": "DefaultStudios.png"
+          },
+          {
+            "label": "20459",
+            "actiontype": 1,
+            "action": 8,
+            "visible": true,
+            "thumb": "DefaultTags.png"
+          }
+        ]
+    },
+    {
+        "label": "2",
+        "thumb": "icons/mainmenu/music.png",
+        "actiontype": 2,
+        "action": 0,
+        "visible": true,
+        "submenu": [
+          {
+            "label": "135",
+            "actiontype": 2,
+            "action": 1,
+            "visible": true,
+            "thumb": "DefaultMusicGenres.png"
+          },
+          {
+            "label": "133",
+            "actiontype": 2,
+            "action": 0,
+            "visible": true,
+            "thumb": "DefaultMusicArtists.png"
+          },
+          {
+            "label": "132",
+            "actiontype": 2,
+            "action": 2,
+            "visible": true,
+            "thumb": "DefaultMusicAlbums.png"
+          },
+          {
+            "label": "1050",
+            "actiontype": 2,
+            "action": 3,
+            "visible": true,
+            "thumb": "DefaultMusicSongs.png"
+          },
+          {
+            "label": "134",
+            "actiontype": 2,
+            "action": 4,
+            "visible": true,
+            "thumb": "DefaultMusicSongs.png"
+          },
+          {
+            "label": "652",
+            "actiontype": 2,
+            "action": 5,
+            "visible": true,
+            "thumb": "DefaultMusicYears.png"
+          },
+          {
+            "label": "517",
+            "actiontype": 2,
+            "action": 6,
+            "visible": true,
+            "thumb": "DefaultMusicRecentlyPlayed.png"
+          },
+          {
+            "label": "359",
+            "actiontype": 2,
+            "action": 7,
+            "visible": true,
+            "thumb": "DefaultMusicRecentlyAdded.png"
+          },
+          {
+            "label": "521",
+            "actiontype": 2,
+            "action": 8,
+            "visible": true,
+            "thumb": "DefaultMusicCompilations.png"
+          }
+        ]
+    },
+    {
+        "label": "20389",
+        "thumb": "icons/mainmenu/musicvideos.png",
+        "actiontype": 3,
+        "action": 0,
+        "visible": true,
+        "submenu": [
+          {
+            "label": "20382",
+            "actiontype": 3,
+            "action": 1,
+            "visible": true,
+            "thumb": "DefaultRecentlyAddedMusicVideos.png"
+          },
+          {
+            "label": "135",
+            "actiontype": 3,
+            "action": 2,
+            "visible": true,
+            "thumb": "DefaultGenre.png"
+          },
+          {
+            "label": "20389",
+            "actiontype": 3,
+            "action": 0,
+            "visible": true,
+            "thumb": "DefaultMusicVideos.png"
+          },
+          {
+            "label": "652",
+            "actiontype": 3,
+            "action": 3,
+            "visible": true,
+            "thumb": "DefaultYear.png"
+          },
+          {
+            "label": "133",
+            "actiontype": 3,
+            "action": 4,
+            "visible": true,
+            "thumb": "DefaultMusicArtists.png"
+          },
+          {
+            "label": "20348",
+            "actiontype": 3,
+            "action": 5,
+            "visible": true,
+            "thumb": "DefaultDirector.png"
+          },
+          {
+            "label": "132",
+            "actiontype": 3,
+            "action": 6,
+            "visible": true,
+            "thumb": "DefaultMusicAlbums.png"
+          },
+          {
+            "label": "20388",
+            "actiontype": 3,
+            "action": 7,
+            "visible": true,
+            "thumb": "DefaultStudios.png"
+          },
+          {
+            "label": "20459",
+            "actiontype": 3,
+            "action": 8,
+            "visible": true,
+            "thumb": "DefaultTags.png"
+          }
+        ]
+    },
+    {
+        "label": "19020",
+        "thumb": "icons/mainmenu/tv.png",
+        "actiontype": 7,
+        "action": 0,
+        "onclick": "Action(PlayPvrTV)",
+        "visible": true,
+        "submenu": [
+          {
+            "label": "19019",
+            "actiontype": 4,
+            "action": 0,
+            "visible": true,
+            "thumb": "DefaultAddonPeripheral.png"
+          },
+          {
+            "label": "19069",
+            "actiontype": 4,
+            "action": 1,
+            "visible": true,
+            "thumb": "icons/pvr/epg.png"
+          },
+          {
+            "label": "19017",
+            "actiontype": 4,
+            "action": 2,
+            "visible": true,
+            "thumb": "icons/pvr/recording_small.png"
+          },
+          {
+            "label": "19040",
+            "actiontype": 4,
+            "action": 3,
+            "visible": true,
+            "thumb": "icons/pvr/timer_small.png"
+          },
+          {
+            "label": "19138",
+            "actiontype": 4,
+            "action": 4,
+            "visible": true,
+            "thumb": "icons/pvr/timer-rule.png"
+          },
+          {
+            "label": "137",
+            "actiontype": 4,
+            "action": 5,
+            "visible": true,
+            "thumb": "DefaultAddonsSearch.png"
+          }
+        ]
+    },
+    {
+        "label": "19021",
+        "thumb": "icons/mainmenu/radio.png",
+        "actiontype": 7,
+        "action": 1,
+        "visible": true,
+        "submenu": [
+          {
+            "label": "19019",
+            "actiontype": 5,
+            "action": 0,
+            "visible": true,
+            "thumb": "DefaultAddonPeripheral.png"
+          },
+          {
+            "label": "19069",
+            "actiontype": 5,
+            "action": 1,
+            "visible": true,
+            "thumb": "icons/pvr/epg.png"
+          },
+          {
+            "label": "19017",
+            "actiontype": 5,
+            "action": 2,
+            "visible": true,
+            "thumb": "icons/pvr/recording_small.png"
+          },
+          {
+            "label": "19040",
+            "actiontype": 5,
+            "action": 3,
+            "visible": true,
+            "thumb": "icons/pvr/timer_small.png"
+          },
+          {
+            "label": "19138",
+            "actiontype": 5,
+            "action": 4,
+            "visible": true,
+            "thumb": "icons/pvr/timer-rule.png"
+          },
+          {
+            "label": "137",
+            "actiontype": 5,
+            "action": 5,
+            "visible": true,
+            "thumb": "DefaultAddonsSearch.png"
+          }
+        ]
+    },
+    {
+        "label": "24001",
+        "thumb": "icons/mainmenu/addons.png",
+        "actiontype": 6,
+        "action": 0,
+        "visible": true,
+        "submenu": []
+    },
+    {
+        "label": "1",
+        "thumb": "icons/mainmenu/pictures.png",
+        "actiontype": 6,
+        "action": 1,
+        "visible": true,
+        "submenu": []
+    },
+    {
+        "label": "3",
+        "thumb": "icons/mainmenu/videos.png",
+        "actiontype": 6,
+        "action": 2,
+        "visible": true,
+        "submenu": []
+    },
+    {
+        "label": "10134",
+        "thumb": "icons/mainmenu/favourites.png",
+        "actiontype": 6,
+        "action": 3,
+        "visible": true,
+        "submenu": []
+    },
+    {
+        "label": "8",
+        "thumb": "icons/mainmenu/weather.png",
+        "actiontype": 6,
+        "action": 4,
+        "visible": true,
+        "submenu": []
+    }
+]

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <allowoverlay>no</allowoverlay>
+    <defaultcontrol always="true">100</defaultcontrol>
+    <controls>
+        <include>background</include>
+        <include content="info_header">
+            <param name="title">$LOCALIZE[5] / $LOCALIZE[10035] / $ADDON[script.unfussy.helper 30003]</param>
+            <param name="showicon" value="true" />
+            <param name="icon" value="icons/buttons/settings.png" />
+        </include>
+        <include content="skinhelper_next_prev_arrows">
+            <param name="width">700</param>
+        </include>
+        <control type="list" id="100">
+            <top>120</top>
+            <left>20</left>
+            <width>700</width>
+            <height>880</height>
+            <onright>200</onright>
+            <scrolltime tween="cubic" easing="out">200</scrolltime>
+            <focusedlayout width="699" height="160">
+                <include content="skinhelper_widgets_listitem">
+                    <param name="active">true</param>
+                </include>
+            </focusedlayout>
+            <itemlayout width="699" height="160">
+                <include content="skinhelper_widgets_listitem" />
+            </itemlayout>
+        </control>
+        <!--
+            Right
+        -->
+        <control type="group">
+            <top>80</top>
+            <left>760</left>
+            <width>1140</width>
+            <height>980</height>
+            <include content="skinhelper_decoration_detail">
+                <param name="active">ControlGroup(200).HasFocus | ControlGroup(300).HasFocus | ControlGroup(400).HasFocus | ControlGroup(500).HasFocus | ControlGroup(600).HasFocus | ControlGroup(700).HasFocus | ControlGroup(800).HasFocus</param>
+                <param name="top_line2">480</param>
+            </include>
+            <control type="label" id="10">
+                <height>70</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <textcolor>active</textcolor>
+                <font>light50</font>
+                <label>$ADDON[script.unfussy.helper 30004] "$INFO[Control.GetLabel(100)]"</label>
+            </control>
+            <control type="grouplist" id="200">
+                <left>20</left>
+                <right>20</right>
+                <top>80</top>
+                <orientation>horizontal</orientation>
+                <defaultcontrol>201</defaultcontrol>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>500</onup>
+                <ondown>300</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>10</itemgap>
+                <include content="skinhelper_detail_buttons">
+                    <param name="is_menu">false</param>
+                </include>
+            </control>
+            <include content="skinhelper_detail_widgets_buttonhelp" />
+            <control type="grouplist" id="300">
+                <left>20</left>
+                <right>20</right>
+                <top>-300</top>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>200</onup>
+                <ondown>400</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>5</itemgap>
+                <control type="grouplist" id="301">
+                    <left>10</left>
+                    <orientation>vertical</orientation>
+                    <itemgap>0</itemgap>
+                    <control type="label">
+                        <height>40</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30015]:</label>
+                    </control>
+                    <control type="label" id="302">
+                        <height>40</height>                    
+                        <aligny>center</aligny>
+                        <font>regular30</font>
+                        <width>550</width>
+                        <label>$INFO[Container(100).ListItem(0).Label]</label>
+                    </control>
+                </control>
+                <control type="button" id="303">
+                    <top>0</top>
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30016]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+                <control type="group" id="304">
+                    <height>80</height>
+                    <control type="label">
+                        <visible>!String.IsEmpty(Container(100).ListItem(0).Property(limit))</visible>
+                        <left>10</left>
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30017]: [COLOR white]$INFO[Container(100).ListItem(0).Property(limit)][/COLOR]</label>
+                    </control>
+                    <control type="label">
+                        <visible>String.IsEmpty(Container(100).ListItem(0).Property(limit))</visible>
+                        <left>10</left>
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30017]: [COLOR white]$ADDON[script.unfussy.helper 30005][/COLOR]</label>
+                    </control>
+                </control>
+                <control type="button" id="306">
+                    <top>-85</top>
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30018]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+                <control type="radiobutton" id="307">
+                    <textoffsetx>10</textoffsetx>
+                    <height>80</height>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <invalidcolor>invalid</invalidcolor>
+                    <textcolor>active</textcolor>
+                    <selectedcolor>white</selectedcolor>
+                    <label>$ADDON[script.unfussy.helper 30014]</label>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus />
+                </control>
+            </control>
+            <control type="grouplist" id="400">
+                <top>500</top>
+                <left>20</left>
+                <right>20</right>
+                <orientation>horizontal</orientation>
+                <onleft>100</onleft>
+                <onup>300</onup>
+                <ondown>500</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>0</itemgap>
+                <control type="label" id="401">
+                    <left>10</left>
+                    <width>400</width>
+                    <height>80</height>                    
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <textcolor>active</textcolor>
+                    <label>$ADDON[script.unfussy.helper 30031]:</label>
+                </control>
+                <control type="label" id="402">
+                    <width>550</width>
+                    <height>80</height>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                </control>
+                <control type="radiobutton" id="403">
+                    <top>10</top>
+                    <left>10</left>
+                    <width>60</width>
+                    <height>60</height>
+                    <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                    <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonfocus>
+                    <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioofffocus>
+                    <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradiooffnofocus>
+                    <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradioondisabled>
+                    <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradiooffdisabled>
+                    <radiowidth>60</radiowidth>
+                    <radioheight>60</radioheight>
+                    <radioposx>1</radioposx>
+                    <radioposy>0</radioposy>
+                </control>
+                <control type="radiobutton" id="404">
+                    <top>10</top>
+                    <width>60</width>
+                    <height>60</height>
+                    <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                    <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonfocus>
+                    <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonnofocus>
+                    <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioofffocus>
+                    <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradiooffnofocus>
+                    <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradioondisabled>
+                    <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradiooffdisabled>
+                    <radiowidth>60</radiowidth>
+                    <radioheight>60</radioheight>
+                    <radioposx>1</radioposx>
+                    <radioposy>-2</radioposy>
+                </control>
+            </control>
+            <control type="grouplist" id="500">
+                <top>300</top>
+                <left>20</left>
+                <right>20</right>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>400</onup>
+                <ondown condition="!Control.IsVisible(602) + !Control.IsVisible(702) + !Control.IsVisible(802)">200</ondown>
+                <ondown condition="Control.IsVisible(602)">600</ondown>
+                <ondown condition="Control.IsVisible(702)">700</ondown>
+                <ondown condition="Control.IsVisible(802)">800</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>10</itemgap>
+                <control type="grouplist" id="501">
+                    <orientation>vertical</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label">
+                        <width>400</width>
+                        <height>40</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30004]:</label>
+                    </control>
+                    <control type="label" id="502">
+                        <height>40</height>                    
+                        <aligny>center</aligny>
+                        <font>regular30</font>
+                        <label></label>
+                    </control>
+                </control>
+                <control type="button" id="503">
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30032]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+            </control>
+            <control type="grouplist" id="600">
+                <top>600</top>
+                <left>20</left>
+                <right>20</right>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>500</onup>
+                <ondown>200</ondown>
+                <defaultcontrol always="true">604</defaultcontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>10</itemgap>
+                <control type="grouplist" id="601">
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label" id="602">
+                        <width>auto</width>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30034]:</label>
+                    </control>
+                    <control type="label" id="603">
+                        <top>0</top>
+                        <left>10</left>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <label></label>
+                    </control>
+                </control>
+                <control type="button" id="604">
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30035]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+                <control type="grouplist" id="605">
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label" id="606">
+                        <width>auto</width>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30036]:</label>
+                    </control>
+                    <control type="label" id="607">
+                        <top>0</top>
+                        <left>10</left>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <label></label>
+                    </control>
+                </control>
+                <control type="button" id="608">
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30037]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+            </control>
+            <control type="grouplist" id="700">
+                <top>690</top>
+                <left>20</left>
+                <right>20</right>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>500</onup>
+                <ondown>200</ondown>
+                <defaultcontrol always="true">704</defaultcontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>10</itemgap>
+                <control type="grouplist" id="701">
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label" id="702">
+                        <width>auto</width>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30232]:</label>
+                    </control>
+                    <control type="label" id="703">
+                        <top>0</top>
+                        <left>10</left>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <label></label>
+                    </control>
+                </control>
+                <control type="button" id="704">
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30233]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+                <control type="list" id="705">
+                    <top>0</top>
+                    <left>20</left>
+                    <right>20</right>
+                    <height>150</height>
+                    <orientation>horizontal</orientation>
+                    <scrolltime tween="cubic" easing="out">200</scrolltime>
+                    <focusedlayout width="150" height="130">
+                        <include content="skinhelper_widgets_addonlist">
+                            <param name="active">true</param>
+                        </include>
+                    </focusedlayout>
+                    <itemlayout width="150" height="130">
+                        <include content="skinhelper_widgets_addonlist" />
+                    </itemlayout>
+                </control>
+                <control type="grouplist" id="706">
+                    <visible>Integer.IsGreater(Container(705).NumItems,0)</visible> 
+                    <top>-28</top>
+                    <height>50</height>
+                    <orientation>horizontal</orientation>
+                    <align>center</align>
+                    <itemgap>10</itemgap>
+                    <onleft>706</onleft>
+                    <control type="radiobutton" id="707">
+                        <animation effect="rotate" end="-90" center="auto" time="0">WindowOpen</animation>
+                        <width>50</width>
+                        <height>50</height>
+                        <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                        <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradiooffnofocus>
+                        <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradioondisabled>
+                        <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradiooffdisabled>
+                        <radiowidth>50</radiowidth>
+                        <radioheight>50</radioheight>
+                        <radioposx>1</radioposx>
+                        <radioposy>0</radioposy>
+                    </control>
+                    <control type="radiobutton" id="708">
+                        <animation effect="rotate" end="-90" center="auto" time="0">WindowOpen</animation>
+                        <width>50</width>
+                        <height>50</height>
+                        <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                        <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradiooffnofocus>
+                        <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradioondisabled>
+                        <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradiooffdisabled>
+                        <radiowidth>50</radiowidth>
+                        <radioheight>50</radioheight>
+                        <radioposx>1</radioposx>
+                        <radioposy>-5</radioposy>
+                    </control>
+                </control>
+            </control>
+            <control type="grouplist" id="800">
+                <top>500</top>
+                <left>20</left>
+                <right>20</right>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>500</onup>
+                <ondown>200</ondown>
+                <defaultcontrol always="true">804</defaultcontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>10</itemgap>
+                <control type="grouplist" id="801">
+                    <orientation>vertical</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label" id="802">
+                        <height>40</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30249]:</label>
+                    </control>
+                    <control type="label" id="803">
+                        <height>40</height>                    
+                        <aligny>center</aligny>
+                        <font>regular30</font>
+                        <label></label>
+                    </control>
+                </control>
+                <control type="button" id="804">
+                    <height>80</height>                    
+                    <right>0</right>
+                    <width>500</width>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <label>$ADDON[script.unfussy.helper 30250]</label>
+                    <align>center</align>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

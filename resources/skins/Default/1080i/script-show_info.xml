@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">101</defaultcontrol>
+    <controls>
+        <include>background_dialog</include>
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <centertop>50%</centertop>
+            <width>1200</width>
+            <height>800</height>
+            <control type="image">
+                <aspectratio>stretch</aspectratio>
+                <texture colordiffuse="black">colors/white.png</texture>
+                <bordertexture colordiffuse="border">colors/white.png</bordertexture>
+                <bordersize>1</bordersize>
+            </control>
+            <control type="group">
+                <left>20</left>
+                <width>850</width>
+                <control type="label">
+                    <top>20</top>
+                    <height>40</height>
+                    <font>regular30</font>
+                    <label>$INFO[Window.Property(datelong)], [COLOR active]$INFO[Window.Property(starttime)] - $INFO[Window.Property(endtime)][/COLOR] $INFO[Window.Property(runtime),(, min)]</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <top>70</top>
+                    <height>80</height>
+                    <font>light60</font>
+                    <textcolor>active</textcolor>
+                    <label>$INFO[Window.Property(title)]</label>
+                    <aligny>center</aligny>
+                    <scroll>true</scroll>
+                </control>
+            </control>
+            <control type="image">
+                <top>0</top>
+                <right>20</right>
+                <width>270</width>
+                <height>180</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$INFO[Window.Property(channelicon)]</texture>
+            </control>
+            <control type="image">
+                <top>190</top>
+                <height>1</height>
+                <aspectratio>stretch</aspectratio>
+                <texture colordiffuse="border">colors/white.png</texture>
+            </control>
+            <control type="textbox" id="100">
+                <pagecontrol>100001</pagecontrol>
+                <left>20</left>
+                <top>200</top>
+                <width>640</width>
+                <height>550</height>
+                <font>regular30</font>
+                <textcolor>white</textcolor>
+                <scrolltime>200</scrolltime>
+                <label>$INFO[Window.Property(plot)]</label>
+            </control>
+            <include content="scrollbar">
+                <param name="controlled_id" value="100" />
+                <param name="onleft_id" value="101" />
+                <param name="onright_id" value="101" />
+                <param name="left" value="670" />
+                <param name="top" value="200" />
+                <param name="height" value="550" />
+            </include>
+
+            <control type="grouplist">
+                <left>720</left>
+                <top>200</top>
+                <width>460</width>
+                <height>550</height>
+                <orientation>vertical</orientation>
+                <itemgap>20</itemgap>
+                <control type="textbox">
+                    <visible>!String.IsEmpty(Window.Property(genre))</visible>
+                    <height>auto</height>
+                    <font>regular30</font>
+                    <label>[COLOR active]$LOCALIZE[515]:[/COLOR] $INFO[Window.Property(genre)]</label>
+                </control>
+                <control type="textbox">
+                    <visible>!String.IsEmpty(Window.Property(director))</visible>
+                    <height>auto</height>
+                    <font>regular30</font>
+                    <label>[COLOR active]$LOCALIZE[20339]:[/COLOR] $INFO[Window.Property(director)]</label>
+                </control>
+                <control type="textbox">
+                    <visible>!String.IsEmpty(Window.Property(cast))</visible>
+                    <height>auto</height>
+                    <font>regular30</font>
+                    <label>[COLOR active]$LOCALIZE[344]:[/COLOR] $INFO[Window.Property(cast)]</label>
+                </control>
+                <control type="textbox">
+                    <visible>!String.IsEmpty(Window.Property(year))</visible>
+                    <height>auto</height>
+                    <font>regular30</font>
+                    <label>[COLOR active]$LOCALIZE[345]:[/COLOR] $INFO[Window.Property(year)]</label>
+                </control>
+            </control>
+            <control type="grouplist" id="101">
+                <bottom>-40</bottom>
+                <right>20</right>
+                <align>right</align>
+                <height>100</height>
+                <orientation>horizontal</orientation>
+                <itemgap>5</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <defaultcontrol always="true">102</defaultcontrol>
+                <onup>100001</onup>
+                <include content="button_round">
+                    <param name="id">102</param>
+                    <param name="onclick">Back</param>
+                    <param name="icon">icons/buttons/close.png</param>
+                    <param name="radius">100</param>
+                    <param name="iconsize">60</param>
+                    <param name="iconoffset">20</param>
+                </include>
+                <include content="button_round">
+                    <param name="id">103</param>
+                    <param name="visible">System.HasAddon(service.kn.switchtimer)</param>
+                    <param name="onclick">RunScript(service.kn.switchtimer,action=add,channel=$INFO[Window.Property(channelid)],date=$INFO[Window.Property(switchdate)],title=$INFO[Window.Property(title)])</param>
+                    <param name="onclick2">Dialog.Close(all)</param>
+                    <param name="icon">icons/buttons/launch.png</param>
+                    <param name="radius">100</param>
+                    <param name="iconsize">60</param>
+                    <param name="iconoffset">20</param>
+                </include>
+                <include content="button_round">
+                    <param name="id">104</param>
+                    <param name="onclick">RunScript(script.unfussy.helper,action=record_runningat&bc_id=$INFO[Window.Property(broadcastid)])</param>
+                    <param name="onclick2">Dialog.Close(all)</param>
+                    <param name="icon">icons/pvr/timer.png</param>
+                    <param name="radius">100</param>
+                    <param name="iconsize">60</param>
+                    <param name="iconoffset">20</param>
+                </include>
+                <include content="button_round">
+                    <param name="id">105</param>
+                    <param name="visible">Integer.IsLess(Window.Property(runtime),75)</param>
+                    <param name="visible2">System.HasAddon(script.extendedinfo)</param>
+                    <param name="onclick" value="Action(close)" />
+                    <param name="onclick2" value="SetProperty(custombusy,true,home)" />
+                    <param name="onclick3" value="SetProperty(custombusyreason,tmdbtvshow,home)" />
+                    <param name="onclick4" value="SetProperty(custombusylabel,$INFO[Window.Property(title)],home)" />
+                    <param name="onclick5" value="RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Window.Property(title)])" />
+                    <param name="icon">icons/buttons/tmdb.png</param>
+                    <param name="radius">100</param>
+                    <param name="iconsize">70</param>
+                    <param name="iconoffset">15</param>
+                </include>
+                <include content="button_round">
+                    <param name="id">106</param>
+                    <param name="visible">Integer.IsGreater(Window.Property(runtime),74)</param>
+                    <param name="visible2">System.HasAddon(script.extendedinfo)</param>
+                    <param name="onclick" value="Action(close)" />
+                    <param name="onclick2" value="SetProperty(custombusy,true,home)" />
+                    <param name="onclick3" value="SetProperty(custombusyreason,tmdbmovie,home)" />
+                    <param name="onclick4" value="SetProperty(custombusylabel,$INFO[Window.Property(title)],home)" />
+                    <param name="onclick5" value="RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Window.Property(title)])" />
+                    <param name="icon">icons/buttons/tmdb.png</param>
+                    <param name="radius">100</param>
+                    <param name="iconsize">70</param>
+                    <param name="iconoffset">15</param>
+                </include>
+            </control>
+            <control type="label">
+                <visible>ControlGroup(101).HasFocus(0)</visible>
+                <top>845</top>
+                <left>0</left>
+                <width>500</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <textcolor>active</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <font>regular24</font>
+                <label>$VAR[GTOInfoHelpText]</label>
+                <include>positioning_gto_buttons</include>
+            </control>
+        </control>
+    </controls>
+</window>

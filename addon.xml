@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.unfussy.helper" name="Unfussy Helper" version="0.0.1" provider-name="louis">
+	<requires>
+		<import addon="xbmc.python" version="2.25.0"/>
+	</requires>
+	<extension point="xbmc.python.script" library="default.py" />
+	<extension point="xbmc.python.pluginsource" library="plugin.py" />
+	<extension point="xbmc.service" library="service.py" start="login" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Unfussy Helper Script</summary>
+		<description lang="en">Helper script to provide features and functions to the Unfussy skin</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</license>
+		<forum></forum>
+		<source></source>
+		<email></email>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart></fanart>
+		</assets>
+	</extension>
+</addon>

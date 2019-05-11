@@ -1,0 +1,534 @@
+# Addon Name: script.skinschaumermal.helper
+# Addon id: script.skinschaumermal.helper
+# Addon version: 0.0.1
+# Addon Provider: Louis Braun
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC-Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2019-07-04 08:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgctxt "Addon Summary"
+msgid "Helper Script for Schaumermal Skin"
+msgstr "Helper Script für den Schaumermal Skin"
+
+msgctxt "Addon Description"
+msgid "Helper Script for Schaumermal Skin"
+msgstr "Helper Script für den Schaumermal Skin"
+
+
+msgctxt "#30001"
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+msgctxt "#30002"
+msgid "Sub Menu"
+msgstr "Untermenü"
+
+msgctxt "#30003"
+msgid "Widgets"
+msgstr "Widgets"
+
+msgctxt "#30004"
+msgid "Widget"
+msgstr "Widget"
+
+msgctxt "#30005"
+msgid "unlimited"
+msgstr "unbeschränkt"
+
+msgctxt "#30006"
+msgid "Description"
+msgstr "Bezeichnung"
+
+msgctxt "#30007"
+msgid "Edit Description"
+msgstr "Bezeichnung anpassen"
+
+msgctxt "#30008"
+msgid "Icon"
+msgstr "Icon"
+
+msgctxt "#30009"
+msgid "Change Icon"
+msgstr "Icon ändern"
+
+msgctxt "#30010"
+msgid "Show Element"
+msgstr "Element anzeigen"
+
+msgctxt "#30011"
+msgid "Action Type"
+msgstr "Typ der Aktion"
+
+msgctxt "#30012"
+msgid "Action"
+msgstr "Aktion"
+
+msgctxt "#30013"
+msgid "Change Action"
+msgstr "Aktion ändern"
+
+msgctxt "#30014"
+msgid "Show Widget"
+msgstr "Widget anzeigen"
+
+msgctxt "#30015"
+msgid "Header"
+msgstr "Header"
+
+msgctxt "#30016"
+msgid "edit Header"
+msgstr "Header bearbeiten"
+
+msgctxt "#30017"
+msgid "Element Limit"
+msgstr "Max. Anzahl"
+
+msgctxt "#30018"
+msgid "edit Limit"
+msgstr "Max. Anzahl ändern"
+
+msgctxt "#30019"
+msgid "Select Limit"
+msgstr "Max. Anzahl wählen"
+
+msgctxt "#30020"
+msgid "move up"
+msgstr "nach oben"
+
+msgctxt "#30021"
+msgid "move down"
+msgstr "nach unten"
+
+msgctxt "#30022"
+msgid "new element"
+msgstr "Neues Element"
+
+msgctxt "#30023"
+msgid "new submenu"
+msgstr "Neues Untermenü"
+
+msgctxt "#30024"
+msgid "delete element"
+msgstr "Element löschen"
+
+msgctxt "#30025"
+msgid "back to default"
+msgstr "Zurück auf Default"
+
+msgctxt "#30026"
+msgid "new widget"
+msgstr "Neues Widget"
+
+msgctxt "#30027"
+msgid "delete widget"
+msgstr "Widget löschen"
+
+msgctxt "#30028"
+msgid "enter description"
+msgstr "Bezeichnung eingeben"
+
+msgctxt "#30029"
+msgid "select new icon"
+msgstr "Neues Icon auswählen "
+
+msgctxt "#30030"
+msgid "enter header"
+msgstr "Header eingeben"
+
+msgctxt "#30031"
+msgid "Widget Category"
+msgstr "Widget Kategorie"
+
+msgctxt "#30032"
+msgid "change widget"
+msgstr "Widget ändern"
+
+msgctxt "#30033"
+msgid "new widget"
+msgstr "Neues Widget"
+
+msgctxt "#30034"
+msgid "selected channels"
+msgstr "ausgewählte Kanäle"
+
+msgctxt "#30035"
+msgid "select channels"
+msgstr "Kanäle auswählen"
+
+msgctxt "#30036"
+msgid "point in time"
+msgstr "Zeitpunkt"
+
+msgctxt "#30037"
+msgid "select point in time"
+msgstr "Zeitpunkt ändern"
+
+msgctxt "#30100"
+msgid "Link to Video Database"
+msgstr "Link auf Video Datenbank"
+
+msgctxt "#30101"
+msgid "Link to TV Show Database"
+msgstr "Link auf Serien Datenbank"
+
+msgctxt "#30102"
+msgid "Link to Music Database"
+msgstr "Link auf Musik Datenbank"
+
+msgctxt "#30103"
+msgid "Link to Music Video Database"
+msgstr "Link auf Musikvideo Datenbank"
+
+msgctxt "#30104"
+msgid "Live TV Window"
+msgstr "Live TV Fenster"
+
+msgctxt "#30105"
+msgid "Live Radio Window"
+msgstr "Live Radio Fenster"
+
+msgctxt "#30106"
+msgid "Common Window"
+msgstr "Allgemeines Fenster"
+
+msgctxt "#30107"
+msgid "Execute Command"
+msgstr "Befehl ausführen"
+
+msgctxt "#30108"
+msgid "Link to Video Playlist"
+msgstr "Verweis auf Video Playlist"
+
+msgctxt "#30109"
+msgid "Link to Music Playlist"
+msgstr "Verweis auf Musik Playlist"
+
+msgctxt "#30110"
+msgid "Start Addon"
+msgstr "Addon starten"
+
+msgctxt "#30111"
+msgid "New Element"
+msgstr "Neues Element"
+
+msgctxt "#30112"
+msgid "Really?"
+msgstr "Wirklich?"
+
+msgctxt "#30113"
+msgid "Do you really want to delete"
+msgstr "Willst Du dieses Element wirklich löschen"
+
+msgctxt "#30114"
+msgid "The submenu will also be deleted!"
+msgstr "Das Untermenü wird ebenfalls gelöscht!"
+
+msgctxt "#30115"
+msgid "Do you really want to set the menu back to default?\nAll customizations are lost!"
+msgstr "Willst du das Menü wirklich auf die Defaultwerte zurücksetzen?\nAlle Anpassungen gehen verloren!"
+
+msgctxt "#30116"
+msgid "undefined"
+msgstr "nicht definiert"
+
+msgctxt "#30117"
+msgid "Do you really want to set all widgets back to default?\nAll customizations are lost!"
+msgstr "Willst du die Widgets wirklich auf die Defaultwerte zurücksetzen?\nAlle Anpassungen gehen verloren!"
+
+msgctxt "#30200"
+msgid "Live TV Widget"
+msgstr "Live TV Widget"
+
+msgctxt "#30201"
+msgid "Movie Widget"
+msgstr "Film Widget"
+
+msgctxt "#30202"
+msgid "Tv Show Widget"
+msgstr "Serien Widget"
+
+msgctxt "#30203"
+msgid "Music Widget"
+msgstr "Musik Widget"
+
+msgctxt "#30204"
+msgid "Music Video Widget"
+msgstr "Musikvideo Widget"
+
+msgctxt "#30205"
+msgid "Addon Widget"
+msgstr "Addon Widget"
+
+msgctxt "#30207"
+msgid "Weather Widget"
+msgstr "Wetter Widget"
+
+msgctxt "#30208"
+msgid "Live TV"
+msgstr "Live TV"
+
+msgctxt "#30209"
+msgid "last watched live tv channels"
+msgstr "Zuletzt gesehene TV Kanäle"
+
+msgctxt "#30210"
+msgid "TV Recordings"
+msgstr "TV Aufnahmen"
+
+msgctxt "#30211"
+msgid "newest tv recordings"
+msgstr "Neueste TV Aufnahmen"
+
+msgctxt "#30212"
+msgid "In Progress Movies"
+msgstr "Begonnene Filme"
+
+msgctxt "#30213"
+msgid "movies currently in progress"
+msgstr "Filme, die begonnen aber nicht beendet wurden"
+
+msgctxt "#30214"
+msgid "New Movies"
+msgstr "Neue Filme"
+
+msgctxt "#30215"
+msgid "latest movies added to database"
+msgstr "zuletzt zur Datenbank hinzugefügte Filme"
+
+msgctxt "#30216"
+msgid "New Episodes"
+msgstr "Neue Episoden"
+
+msgctxt "#30217"
+msgid "latest tv show episodes added to database"
+msgstr "zuletzt zur Datenbank hinzugefügte Episoden"
+
+msgctxt "#30218"
+msgid "Next Episodes"
+msgstr "Anstehende Episoden"
+
+msgctxt "#30219"
+msgid "next pending episode from in progress series"
+msgstr "nächste anstehende Episoden aus begonnenen Serien"
+
+msgctxt "#30220"
+msgid "New Music Videos"
+msgstr "Neue Musik Videos"
+
+msgctxt "#30221"
+msgid "newest music videos added to database"
+msgstr "neueste Musik Videos in der Datenbank"
+
+msgctxt "#30222"
+msgid "Random Music Videos"
+msgstr "Zufällige Musik Videos"
+
+msgctxt "#30223"
+msgid "a random selection of music videos in the database"
+msgstr "Zufällige Auswahl von Musik Videos in der Datenbank"
+
+msgctxt "#30224"
+msgid "broadcasts starting at..."
+msgstr "Was läuft um..."
+
+msgctxt "#30225"
+msgid "broadcasts at a certain time on intended channels"
+msgstr "Sendungen zu einer bestimmten Zeit auf ausgewählten Kanälen"
+
+msgctxt "#30226"
+msgid "TV Timers"
+msgstr "TV Timer"
+
+msgctxt "#30227"
+msgid "active tv timers"
+msgstr "aktive TV Timer"
+
+msgctxt "#30228"
+msgid "Addons"
+msgstr "Addons"
+
+msgctxt "#30229"
+msgid "arbitrary list of installed addons"
+msgstr "beliebige Liste installierter Addons"
+
+msgctxt "#30230"
+msgid "Favorites"
+msgstr "Favoriten"
+
+msgctxt "#30231"
+msgid "list of all favorites set up in Kodi"
+msgstr "Liste aller in Kodi konfigurierten Favoriten"
+
+msgctxt "#30232"
+msgid "selected addons"
+msgstr "Gewählte Addons"
+
+msgctxt "#30233"
+msgid "select addons"
+msgstr "Addons auswählen"
+
+msgctxt "#30234"
+msgid "weather forecast - today"
+msgstr "Wetter Vorhersage für heute"
+
+msgctxt "#30235"
+msgid "hourly weather forecast"
+msgstr "Stündliche Wettervorhersage"
+
+msgctxt "#30236"
+msgid "weather forecast - next days"
+msgstr "Wetter Vorhersage für die nächsten Tage"
+
+msgctxt "#30237"
+msgid "daily weather forecast"
+msgstr "Tägliche Wettervorhersage"
+
+msgctxt "#30238"
+msgid "unplayed albums"
+msgstr "Ungespielte Musikalben"
+
+msgctxt "#30239"
+msgid "unplayed random music albums"
+msgstr "zufällige ungespielte Musikalben"
+
+msgctxt "#30240"
+msgid "most played albums"
+msgstr "Am häufigsten gespielte Musikalben"
+
+msgctxt "#30241"
+msgid "most played albums in music database"
+msgstr "Am häufigsten gespielte Musikalben in der Musikdatenbank"
+
+msgctxt "#30242"
+msgid "start live tv"
+msgstr "Starte Live TV"
+
+msgctxt "#30243"
+msgid "start live radio"
+msgstr "Starte Live Radio"
+
+msgctxt "#30244"
+msgid "start dvd"
+msgstr "Starte DVD"
+
+msgctxt "#30245"
+msgid "random albums"
+msgstr "Zufällige Alben"
+
+msgctxt "#30246"
+msgid "random albums from music database"
+msgstr "Zufällige Alben aus der Musikdatenbank"
+
+msgctxt "#30247"
+msgid "smart movie playlist"
+msgstr "Smarte Filme Playliste"
+
+msgctxt "#30248"
+msgid "self defined smart playlist for movies"
+msgstr "Selbst definierte Smarte Playliste für Filme"
+
+msgctxt "#30249"
+msgid "playlist"
+msgstr "Playliste"
+
+msgctxt "#30250"
+msgid "select smart playlist"
+msgstr "Smart Playlist auswählen"
+
+msgctxt "#30251"
+msgid "smart tvshow playlist"
+msgstr "Smarte Serien Playliste"
+
+msgctxt "#30252"
+msgid "self defined smart playlist for tvshows"
+msgstr "Selbst definierte Smart Playlist für Serien"
+
+msgctxt "#30253"
+msgid "smart episode playlist"
+msgstr "Smarte Episoden Playliste"
+
+msgctxt "#30254"
+msgid "self defined smart playlist for tvshow episodes"
+msgstr "Selbst definierte Smart Playlist für Serien Episoden"
+
+msgctxt "#30255"
+msgid "smart musicvideo playlist"
+msgstr "Smarte Musik Video Playliste"
+
+msgctxt "#30256"
+msgid "self defined smart playlist for musicvideos"
+msgstr "Selbst definierte Smart Playlist für Musik Videos"
+
+msgctxt "#30257"
+msgid "music playlist - songs"
+msgstr "Musik Playliste - Lieder"
+
+msgctxt "#30258"
+msgid "self defined playlist for songs"
+msgstr "Selbst definierte Playliste für Lieder"
+
+msgctxt "#30259"
+msgid "music playlist - albums"
+msgstr "Musik Playliste - Alben"
+
+msgctxt "#30260"
+msgid "self defined playlist for albums"
+msgstr "Selbst definierte Playlist für Alben"
+
+msgctxt "#30261"
+msgid "music playlist - artists"
+msgstr "Musik Playliste - Künstler"
+
+msgctxt "#30262"
+msgid "self defined playlist for artists"
+msgstr "Selbst definierte Playlist für Künstler"
+
+msgctxt "#30263"
+msgid "square"
+msgstr "Quadratisch"
+
+msgctxt "#30264"
+msgid "poster"
+msgstr "Hochformat"
+
+msgctxt "#30265"
+msgid "landscape"
+msgstr "Querformat"
+
+msgctxt "#30266"
+msgid "with channel icon"
+msgstr "mit Kanal Icons"
+
+msgctxt "#30267"
+msgid "with epg poster"
+msgstr "mit EPG Postern"
+
+msgctxt "#30268"
+msgid "GTO Addon widget"
+msgstr "GTO Addon Widget"
+
+msgctxt "#30269"
+msgid "with movie poster"
+msgstr "mit Film Poster"
+
+msgctxt "#30270"
+msgid "with season poster and episode thumb"
+msgstr "mit Staffel Poster und Episoden Thumbnail"
+
+msgctxt "#30271"
+msgid "with series poster"
+msgstr "mit Serien Poster"
+
+msgctxt "#30272"
+msgid "with musicvideo poster"
+msgstr "mit Musikvideo Poster"

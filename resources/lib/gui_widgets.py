@@ -438,6 +438,7 @@ class AddonSelector:
 
     def showSelector(self, addons):
         addons_list = self.loadAddons()
+        if len(addons_list) == 0: return
         addons_listitems = self.getListitems(addons_list)
         addons_selected = self.getAddonIndexes(addons_list, addons)
         dialog = xbmcgui.Dialog()
@@ -488,7 +489,7 @@ class AddonSelector:
                     if not self.addonExists(list_addons, addon):
                         list_addons.append(addon)
             except Exception:
-                return []
+                pass
         return list_addons
 
     def addonExists(self, addons, addon_new):

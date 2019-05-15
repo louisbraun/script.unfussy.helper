@@ -16,13 +16,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         self.channels_loaded = self.loadChannels()
 
     def loadChannels(self):
-        query = json_call('PVR.GetChannelGroups',
-                    params={'channeltype': 'tv'} )
-        try:
-            self.channelgroups = query['result']['channelgroups']
-            #remove "all channels"
-            self.channelgroups.pop(0)
-        except Exception:
+        if not self.loadChannelGroups():
             return False
 
         for index, group in enumerate(self.channelgroups):
@@ -36,6 +30,27 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             except Exception:
                 log('error loading channels', WARNING)
                 return False
+        return True
+
+    def loadChannelGroups(self):
+        query = json_call('PVR.GetChannelGroups',
+                    params={'channeltype': 'tv'} )
+        try:
+            self.channelgroups = query['result']['channelgroups']
+        except Exception:
+            return False
+        log("loaded groups: %s" % self.channelgroups, DEBUG)
+        hide_all_channels = xbmc.getCondVisibility('Skin.HasSetting(hide_all_channels)')
+        if hide_all_channels:
+            allchannels = -1
+            str_allchannels = xbmc.getLocalizedString(19287)
+            for index, group in enumerate(self.channelgroups):
+                if group['label'] == str_allchannels:
+                    allchannels = index
+                    break
+            if allchannels > -1:
+                del self.channelgroups[allchannels]
+        log("groups after hide_all_channels: %s" % self.channelgroups, DEBUG)
         return True
 
     def onInit( self ):

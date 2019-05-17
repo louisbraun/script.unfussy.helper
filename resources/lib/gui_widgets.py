@@ -133,9 +133,7 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
         self.index_widget = self.control_widgets.getSelectedPosition()
 
     #Actions
-
     def setDetail(self):
-        log("index_widget: %s" % self.index_widget)
         category = self.widgets.getValue(self.index_widget, 'category')
         type = self.widgets.getValue(self.index_widget, 'type')
         style = self.widgets.getValue(self.index_widget, 'style')

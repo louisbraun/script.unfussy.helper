@@ -38,6 +38,8 @@ class WidgetManager:
                     'header': ADDON.getLocalizedString(30208),
                     'description': ADDON.getLocalizedString(30209),
                     'path': 'pvr://channels/tv/*?view=lastplayed',
+                    'sortby': 'lastplayed',
+                    'sortorder': 'descending',
                     'setlimit': True,
                     'styles': [
                         {

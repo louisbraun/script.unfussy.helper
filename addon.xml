@@ -6,6 +6,19 @@
 	<extension point="xbmc.python.script" library="default.py" />
 	<extension point="xbmc.python.pluginsource" library="plugin.py" />
 	<extension point="xbmc.service" library="service.py" start="login" />
+	<extension point="kodi.context.item">
+		<menu id="kodi.core.main">
+			<item library="contextitem.py">
+			<label>30273</label>
+			<visible>
+				  !String.IsEmpty(ListItem.FolderPath) 
+				+ String.StartsWith(ListItem.FolderPath,plugin)
+				+ String.IsEmpty(ListItem.Duration)
+				+ !String.IsEqual(ListItem.Label,..)
+			</visible>
+			</item>
+		</menu>
+	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">Unfussy Helper Script</summary>
 		<description lang="en">Helper script to provide features and functions to the Unfussy skin</description>

@@ -420,6 +420,35 @@ class WidgetManager:
                     ]
                 },
                 {
+                    'header': ADDON.getLocalizedString(30275),
+                    'description': ADDON.getLocalizedString(30276),
+                    'path': '',
+                    'setlimit': True,
+                    'styles': [
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': '',
+                            'widget': 'addonpath_thumb',
+                            'width': 260,
+                            'height': 260
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30282),
+                            'desc': '',
+                            'widget': 'addonpath_thumb_large',
+                            'width': 310,
+                            'height': 300
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30264),
+                            'desc': '',
+                            'widget': 'addonpath_poster',
+                            'width': 260,
+                            'height': 425
+                        }
+                    ]
+                },
+                {
                     'header': ADDON.getLocalizedString(30230),
                     'description': ADDON.getLocalizedString(30231),
                     'path': 'favourites://',

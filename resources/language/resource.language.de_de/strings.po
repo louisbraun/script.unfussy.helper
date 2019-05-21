@@ -532,3 +532,51 @@ msgstr "mit Serien Poster"
 msgctxt "#30272"
 msgid "with musicvideo poster"
 msgstr "mit Musikvideo Poster"
+
+msgctxt "#30273"
+msgid "use as widget path"
+msgstr "Als Widget Pfad benutzen"
+
+msgctxt "#30274"
+msgid "path name"
+msgstr "Pfadname"
+
+msgctxt "#30275"
+msgid "addon path"
+msgstr "Addon Pfad"
+
+msgctxt "#30276"
+msgid "path to an addon folder"
+msgstr "Pfad zu einem Addon Verzeichnis"
+
+msgctxt "#30277"
+msgid "path"
+msgstr "Pfad"
+
+msgctxt "#30278"
+msgid "edit path"
+msgstr "Pfad anpassen"
+
+msgctxt "#30279"
+msgid "no paths defined"
+msgstr "Keine Pfade definiert"
+
+msgctxt "#30280"
+msgid "Please first define addon pathes by navigating to this path in the corresponding addon and activate it via the context menu."
+msgstr "Bitte zuerst Addon Pfade definieren, indem Du im entsprechenden Addon zum gewünschten Pfad navigierst und diesen mittels des Kontextmenüs aktivierst."
+
+msgctxt "#30281"
+msgid "select addon path"
+msgstr "Addon Pfad auswählen"
+
+msgctxt "#30282"
+msgid "landscape large"
+msgstr "Querformat groß"
+
+msgctxt "#30283"
+msgid "manage addon paths"
+msgstr "Addon Pfade verwalten"
+
+msgctxt "#30284"
+msgid "select addon paths to delete"
+msgstr "Addon Pfad zum löschen auswählen"

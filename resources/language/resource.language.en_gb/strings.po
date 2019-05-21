@@ -528,3 +528,51 @@ msgstr ""
 msgctxt "#30272"
 msgid "with musicvideo poster"
 msgstr ""
+
+msgctxt "#30273"
+msgid "use as widget path"
+msgstr ""
+
+msgctxt "#30274"
+msgid "path name"
+msgstr ""
+
+msgctxt "#30275"
+msgid "addon path"
+msgstr ""
+
+msgctxt "#30276"
+msgid "path to an addon folder"
+msgstr ""
+
+msgctxt "#30277"
+msgid "path"
+msgstr ""
+
+msgctxt "#30278"
+msgid "edit path"
+msgstr ""
+
+msgctxt "#30279"
+msgid "no paths defined"
+msgstr ""
+
+msgctxt "#30280"
+msgid "Please first define addon pathes by navigating to this path in the corresponding addon and activate it via the context menu."
+msgstr ""
+
+msgctxt "#30281"
+msgid "select addon path"
+msgstr ""
+
+msgctxt "#30282"
+msgid "landscape large"
+msgstr ""
+
+msgctxt "#30283"
+msgid "manage addon paths"
+msgstr ""
+
+msgctxt "#30284"
+msgid "select addon paths to delete"
+msgstr ""

@@ -236,6 +236,8 @@ class WidgetXMLWriter:
             base_path = self.wm.getPath(widget['category'], widget['type'])
             if widget['playlist'] != '':
                 path = base_path + '/' + widget['playlist']
+        elif widget['category'] == 5 and  widget['type'] == 1:
+            path = widget['addonpath']['path']
         else:
             path = self.wm.getPath(widget['category'], widget['type'])
         return path

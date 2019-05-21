@@ -5,6 +5,7 @@ import xml.etree.ElementTree as xml
 from resources.lib.helper import *
 from resources.lib.widgets_datastore import WidgetsDataStore
 from resources.lib.widget_manager import WidgetManager
+from resources.lib.addon_paths_manager import AddonPathManager
 #######################################################################################
 
 ADDON               = xbmcaddon.Addon()
@@ -37,6 +38,8 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
         self.addon_selector.setVisible(False)
         self.playlist_selector = PlaylistSelector(self)
         self.playlist_selector.setVisible(False)
+        self.addon_path_selector = AddonPathSelector(self)
+        self.addon_path_selector.setVisible(False)
         #init
         self.renderWidgets()
         self.setFocus(self.control_widgets)
@@ -79,6 +82,10 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
             self.editAddonOrder(next=True)
         elif control_id == 804:
             self.editPlaylist()
+        elif control_id == 904:
+            self.editAddonPath()
+        elif control_id == 905:
+            self.manageAddonPaths()
 
     def onAction(self, action):
         self.setWidgetIndex()
@@ -171,6 +178,12 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
             self.playlist_selector.setDetail(self.widgets.getValue(self.index_widget, 'playlist'))
         elif self.playlist_selector.hide(category, type):
             self.playlist_selector.setVisible(False)
+
+        if self.addon_path_selector.show(category, type):
+            self.addon_path_selector.setVisible(True)
+            self.addon_path_selector.setDetail(self.widgets.getValue(self.index_widget, 'addonpath'))
+        elif self.addon_path_selector.hide(category, type):
+            self.addon_path_selector.setVisible(False)
 
     def moveItem(self, up=False):
         pos_new = self.widgets.switchElements(self.index_widget, up)
@@ -274,6 +287,8 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
             self.widgets.addArray(self.index_widget, 'addons')
         elif self.playlist_selector.show(category, new_type):
             self.widgets.addValue(self.index_widget, 'playlist', '')
+        elif self.addon_path_selector.show(category, new_type):
+            self.widgets.addValue(self.index_widget, 'addonpath', '')
         self.reloadWidgets()
         self.setDetail()
 
@@ -305,6 +320,18 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
             return
         self.widgets.setValue(self.index_widget, 'playlist', playlist_new)
         self.setDetail()
+
+    def editAddonPath(self):
+        path_selected = self.widgets.getValue(self.index_widget, 'addonpath')
+        path_new = self.addon_path_selector.showSelector(path_selected)
+        if not path_new: return
+        self.widgets.setValue(self.index_widget, 'header', path_new['name'])
+        self.widgets.setValue(self.index_widget, 'addonpath', path_new)
+        self.reloadWidgets()
+        self.setDetail()
+
+    def manageAddonPaths(self):
+        self.addon_path_selector.showManager()
 
 ############################################################################
 # ChannelSelector
@@ -642,3 +669,79 @@ class PlaylistSelector:
             index += 1
         return -1
 
+############################################################################
+# AddonPathSelector
+############################################################################
+class AddonPathSelector:
+
+    def __init__( self, window ):
+        self.label_path = window.getControl(902)
+        self.label_path_selected = window.getControl(903)
+        self.button_select_path = window.getControl(904)
+        self.button_manage_paths = window.getControl(905)
+
+    def setVisible( self, show ):
+        self.label_path.setVisible(show)
+        self.label_path_selected.setVisible(show)
+        self.button_select_path.setVisible(show)
+        self.button_manage_paths.setVisible(show)
+
+    def show( self, cat, type ):
+        if cat == 5 and type == 1:
+            return True
+        return False
+
+    def hide( self, cat, type ):
+        if self.label_path.isVisible() and not(cat == 5 and type == 1):
+            return True
+        return False
+
+    def setDetail(self, path):
+        if not path:
+            self.label_path_selected.setLabel(ADDON.getLocalizedString(30116))
+        self.label_path_selected.setLabel(path['name'])
+
+    def showSelector(self, path_selected):
+        apm = AddonPathManager()
+        paths = apm.readExisting()
+        if len(paths) == 0:
+            dialog = xbmcgui.Dialog()
+            ok = dialog.ok(ADDON.getLocalizedString(30279), ADDON.getLocalizedString(30280))
+            return
+        listitems = self.createListItems(paths)
+        selected = self.getSelectedIndex(path_selected, paths)
+        dialog = xbmcgui.Dialog()
+        path_new = dialog.select(ADDON.getLocalizedString(30281), listitems, preselect=selected, useDetails=True)
+        if path_new == -1:
+            return None
+        return paths[path_new]
+
+    def showManager(self):
+        apm = AddonPathManager()
+        paths = apm.readExisting()
+        if len(paths) == 0:
+            dialog = xbmcgui.Dialog()
+            ok = dialog.ok(ADDON.getLocalizedString(30279), ADDON.getLocalizedString(30280))
+            return
+        listitems = self.createListItems(paths)
+        dialog = xbmcgui.Dialog()
+        paths_delete = dialog.multiselect(ADDON.getLocalizedString(30284), listitems, useDetails=True)
+        log("pathes_delete: %s" % paths_delete)
+        if not paths_delete: return
+        apm.deletePaths(paths, paths_delete)
+
+    def createListItems(self, paths):
+        listitems = []
+        for path in paths:
+            listitem = xbmcgui.ListItem(label=path['name'])
+            listitem.setLabel2(path['path'])
+            listitems.append(listitem)
+        return listitems
+
+    def getSelectedIndex(self, selected, paths):
+        if not selected:
+            return 0
+        for index, path in enumerate(paths):
+            if path['id'] == selected['id']:
+                return index
+        return 0

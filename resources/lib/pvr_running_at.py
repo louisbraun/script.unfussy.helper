@@ -9,9 +9,12 @@ from resources.lib.helper import *
 class PVRRunningAt:
 
     def __init__(self):
-        def_loc = locale.getdefaultlocale()[0]
-        locale.setlocale(locale.LC_ALL, def_loc)
-    
+        try:
+            def_loc = locale.getdefaultlocale()[0]
+            locale.setlocale(locale.LC_ALL, def_loc)
+        except Exception:
+            log("ERROR setting locale: %s" % def_loc)
+
     def getBroadcastAt( self, starttime, channelid ):
         utc_offset = getUtcOffset()
         broadcasts = self.getBroadcasts(channelid)

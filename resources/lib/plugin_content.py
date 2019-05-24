@@ -27,6 +27,7 @@ class PluginContent:
                 append_items(self.resultlist,[next_episode],type='episodes')
 
     def fetchActors( self, movie_id, tvshow ):
+        cast = []
         if movie_id:
             query = json_call('VideoLibrary.GetMovieDetails',
                     properties=['cast'],

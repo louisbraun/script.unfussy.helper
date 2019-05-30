@@ -517,7 +517,8 @@ class AddonSelector:
         addon_types = [
             'xbmc.addon.video',
             'xbmc.addon.audio',
-            'xbmc.addon.image'
+            'xbmc.addon.image',
+            'xbmc.addon.executable'
         ]
         list_addons = []
         for addon_type in addon_types:

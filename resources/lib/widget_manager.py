@@ -37,8 +37,8 @@ class WidgetManager:
                 {
                     'header': ADDON.getLocalizedString(30208),
                     'description': ADDON.getLocalizedString(30209),
-                    'path': 'pvr://channels/tv/*?view=lastplayed',
-                    'sortby': 'lastplayed',
+                    'path': 'pvr://channels/tv/*',
+                    'sortby': '',
                     'sortorder': 'descending',
                     'setlimit': True,
                     'styles': [
@@ -508,6 +508,11 @@ class WidgetManager:
             return True
         return False
 
+    def isOrderableWidget(self, cat, type):
+        if cat == 0 and type == 0:
+            return True
+        return False
+    
     def staticContent(self, cat, type):
         if 'static_content' in self.types[cat][type]:
             return True
@@ -649,6 +654,11 @@ class WidgetManager:
     def getSortby(self, cat, type):
         if 'sortby' in self.types[cat][type]:
             return self.types[cat][type]['sortby']
+        return ''
+
+    def getSortbyDynamic(self, sortby):
+        if sortby == 0:
+            return 'lastplayed'
         return ''
 
     def getSortorder(self, cat, type):

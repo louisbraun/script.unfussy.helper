@@ -155,6 +155,7 @@ class WidgetsDataStore:
             'type': -1,
             'style': -1,
             'limit': 20,
+            'sortby': 0,
             'visible': True
         }
         self.widgets.insert(index_widget+1, new_widget)
@@ -214,7 +215,10 @@ class WidgetXMLWriter:
         if self.wm.hasOnClick(widget['category'], widget['type']):
             self.setParam(widget_item, 'onclick', self.wm.getOnClick(widget['category'], widget['type']))
             self.setParam(widget_item, 'useonclick', 'true')
-        self.setParam(widget_item, 'sortby', self.wm.getSortby(widget['category'], widget['type']))
+        if self.wm.isOrderableWidget(widget['category'], widget['type']):
+            self.setParam(widget_item, 'sortby', self.wm.getSortbyDynamic(widget['sortby']))
+        else:
+            self.setParam(widget_item, 'sortby', self.wm.getSortby(widget['category'], widget['type']))
         self.setParam(widget_item, 'sortorder', self.wm.getSortorder(widget['category'], widget['type']))
         if self.wm.hasTarget(widget['category'], widget['type']):
             self.setParam(widget_item, 'target', self.wm.getTarget(widget['category'], widget['type']))

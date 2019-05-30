@@ -37,7 +37,7 @@
             <width>1140</width>
             <height>980</height>
             <include content="skinhelper_decoration_detail">
-                <param name="active">ControlGroup(200).HasFocus | ControlGroup(300).HasFocus | ControlGroup(400).HasFocus | ControlGroup(500).HasFocus | ControlGroup(600).HasFocus | ControlGroup(700).HasFocus | ControlGroup(800).HasFocus | ControlGroup(900).HasFocus</param>
+                <param name="active">ControlGroup(200).HasFocus | ControlGroup(300).HasFocus | ControlGroup(400).HasFocus | ControlGroup(500).HasFocus | ControlGroup(600).HasFocus | ControlGroup(700).HasFocus | ControlGroup(800).HasFocus | ControlGroup(900).HasFocus | ControlGroup(1000).HasFocus</param>
                 <param name="top_line2">480</param>
             </include>
             <control type="label" id="10">
@@ -219,11 +219,12 @@
                 <align>center</align>
                 <onleft>100</onleft>
                 <onup>400</onup>
-                <ondown condition="!Control.IsVisible(602) + !Control.IsVisible(702) + !Control.IsVisible(802) + !Control.IsVisible(902)">200</ondown>
+                <ondown condition="!Control.IsVisible(602) + !Control.IsVisible(702) + !Control.IsVisible(802) + !Control.IsVisible(902) + !Control.IsVisible(1002)">200</ondown>
                 <ondown condition="Control.IsVisible(602)">600</ondown>
                 <ondown condition="Control.IsVisible(702)">700</ondown>
                 <ondown condition="Control.IsVisible(802)">800</ondown>
                 <ondown condition="Control.IsVisible(902)">900</ondown>
+                <ondown condition="Control.IsVisible(1002)">1000</ondown>
                 <usecontrolcoords>true</usecontrolcoords>
                 <itemgap>10</itemgap>
                 <control type="grouplist" id="501">
@@ -528,6 +529,72 @@
                     <align>center</align>
                     <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
                     <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
+                </control>
+            </control>
+            <control type="grouplist" id="1000">
+                <top>460</top>
+                <left>20</left>
+                <right>20</right>
+                <align>center</align>
+                <onleft>100</onleft>
+                <onup>500</onup>
+                <ondown>200</ondown>
+                <defaultcontrol always="true">1004</defaultcontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>10</itemgap>
+                <control type="grouplist" id="1001">
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label" id="1002">
+                        <width>400</width>
+                        <height>40</height>
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30285]:</label>
+                    </control>
+                    <control type="label" id="1003">
+                        <width>560</width>
+                        <height>40</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <label></label>
+                    </control>
+                    <control type="radiobutton" id="1004">
+                        <left>10</left>
+                        <width>50</width>
+                        <height>50</height>
+                        <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                        <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradiooffnofocus>
+                        <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradioondisabled>
+                        <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradiooffdisabled>
+                        <radiowidth>50</radiowidth>
+                        <radioheight>50</radioheight>
+                        <radioposx>1</radioposx>
+                        <radioposy>0</radioposy>
+                    </control>
+                    <control type="radiobutton" id="1005">
+                        <width>50</width>
+                        <height>50</height>
+                        <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                        <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradiooffnofocus>
+                        <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradioondisabled>
+                        <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradiooffdisabled>
+                        <radiowidth>50</radiowidth>
+                        <radioheight>50</radioheight>
+                        <radioposx>1</radioposx>
+                        <radioposy>-5</radioposy>
+                    </control>
                 </control>
             </control>
         </control>

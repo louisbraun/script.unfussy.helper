@@ -40,6 +40,8 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
         self.playlist_selector.setVisible(False)
         self.addon_path_selector = AddonPathSelector(self)
         self.addon_path_selector.setVisible(False)
+        self.order_selector = OrderSelector(self)
+        self.order_selector.setVisible(False)
         #init
         self.renderWidgets()
         self.setFocus(self.control_widgets)
@@ -86,6 +88,10 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
             self.editAddonPath()
         elif control_id == 905:
             self.manageAddonPaths()
+        elif control_id == 1004:
+            self.sortOrder(next=False)
+        elif control_id == 1005:
+            self.sortOrder(next=True)
 
     def onAction(self, action):
         self.setWidgetIndex()
@@ -184,6 +190,12 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
             self.addon_path_selector.setDetail(self.widgets.getValue(self.index_widget, 'addonpath'))
         elif self.addon_path_selector.hide(category, type):
             self.addon_path_selector.setVisible(False)
+
+        if self.order_selector.show(category, type):
+            self.order_selector.setVisible(True)
+            self.order_selector.setDetail(self.widgets.getValue(self.index_widget, 'sortby'))
+        elif self.order_selector.hide(category, type):
+            self.order_selector.setVisible(False)
 
     def moveItem(self, up=False):
         pos_new = self.widgets.switchElements(self.index_widget, up)
@@ -332,6 +344,11 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
 
     def manageAddonPaths(self):
         self.addon_path_selector.showManager()
+
+    def sortOrder(self, next=False):
+        new_order = self.order_selector.editOrder(next)
+        self.widgets.setValue(self.index_widget, 'sortby', new_order)
+        self.setDetail()
 
 ############################################################################
 # ChannelSelector
@@ -745,3 +762,50 @@ class AddonPathSelector:
             if path['id'] == selected['id']:
                 return index
         return 0
+
+############################################################################
+# OrderSelector
+############################################################################
+class OrderSelector:
+
+    def __init__( self, window ):
+        self.sortby_livetv = [
+            ADDON.getLocalizedString(30286),
+            ADDON.getLocalizedString(30287)
+        ]
+        self.order = 0
+        self.label_order = window.getControl(1002)
+        self.label_order_selected = window.getControl(1003)
+        self.button_prev = window.getControl(1004)
+        self.button_next = window.getControl(1005)
+
+    def setVisible( self, show ):
+        self.label_order.setVisible(show)
+        self.label_order_selected.setVisible(show)
+        self.button_prev.setVisible(show)
+        self.button_next.setVisible(show)
+
+    def show( self, cat, type ):
+        if cat == 0 and type == 0:
+            return True
+        return False
+
+    def hide( self, cat, type ):
+        if self.label_order.isVisible() and not(cat == 0 and type == 0):
+            return True
+        return False
+
+    def setDetail(self, order):
+        log("sort order: %s" % order)
+        self.order = order
+        self.label_order_selected.setLabel(self.sortby_livetv[self.order])
+
+    def editOrder(self, next=False):
+        if not next:
+            if self.order == 0:
+                self.order = len(self.sortby_livetv) - 1
+            else:
+                self.order -= 1
+        else:
+            self.order = (self.order + 1)%len(self.sortby_livetv)
+        return self.order 

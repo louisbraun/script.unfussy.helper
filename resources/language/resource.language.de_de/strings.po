@@ -580,3 +580,16 @@ msgstr "Addon Pfade verwalten"
 msgctxt "#30284"
 msgid "select addon paths to delete"
 msgstr "Addon Pfad zum löschen auswählen"
+
+msgctxt "#30285"
+msgid "sort order"
+msgstr "Sortierung"
+
+msgctxt "#30286"
+msgid "last seen"
+msgstr "Zuletzt gesehen"
+
+msgctxt "#30287"
+msgid "channel number"
+msgstr "Kanalnummer"
+

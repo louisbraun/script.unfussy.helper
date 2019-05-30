@@ -576,3 +576,16 @@ msgstr ""
 msgctxt "#30284"
 msgid "select addon paths to delete"
 msgstr ""
+
+msgctxt "#30285"
+msgid "sort order"
+msgstr ""
+
+msgctxt "#30286"
+msgid "last seen"
+msgstr ""
+
+msgctxt "#30287"
+msgid "channel number"
+msgstr ""
+

@@ -3,6 +3,7 @@ import xbmcplugin
 from resources.lib.helper import *
 from resources.lib.pvr_running_at import PVRRunningAt
 from resources.lib.pvr_timers import PVRTimers
+from resources.lib.pvr_channellist import PVRChannelList
 
 #######################################################################################
 
@@ -77,6 +78,16 @@ class PluginContent:
             else:
                 t['channelicon'] = ''
         append_items(self.resultlist, timers, type='timers')
+
+    def fetchBroadcasts(self, channel_num, channel_ids):
+        channel_id = -1
+        try:
+            channel_id = channel_ids[channel_num]
+        except Exception:
+            return
+        cl = PVRChannelList()
+        broadcasts = cl.fetchBroadcasts(channel_id)
+        append_items(self.resultlist, broadcasts, type='broadcasts_short')
 
     #######################################################################################
     # private

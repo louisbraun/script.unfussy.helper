@@ -267,6 +267,14 @@ broadcast_properties = [
                     'runtime'
                 ]
 
+broadcast_properties_short = [
+                    'title',
+                    'starttime',
+                    'endtime',
+                    'episodename',
+                    'runtime'
+                ]
+
 timer_properties = [
                     'channelid',
                     'endtime',
@@ -295,6 +303,8 @@ def append_items(li, json_query, type):
             parse_cast(li, item)
         elif type == 'broadcasts':
             parse_broadcast(li, item)
+        elif type == 'broadcasts_short':
+            parse_broadcast_short(li, item)
         elif type == 'timers':
             parse_timers(li, item)
 
@@ -523,6 +533,17 @@ def parse_broadcast(li, item):
     for g in item['genre']: genre += g + ', '
     genre = genre[:-2]
     li_item.setProperty('genre', genre)
+    li.append(('', li_item, False))
+
+def parse_broadcast_short(li, item):
+    li_item = xbmcgui.ListItem(item['title'])
+    li_item.setProperty('broadcastid', str(item['id']))
+    li_item.setProperty('channelid', str(item['channel_id']))
+    li_item.setProperty('date', item['date'])
+    li_item.setProperty('starttime', item['starttime'])
+    li_item.setProperty('endtime', item['endtime'])
+    li_item.setProperty('episodename', item['episodename'])
+    li_item.setProperty('runtime', str(item['runtime']))
     li.append(('', li_item, False))
 
 def parse_timers(li, item):

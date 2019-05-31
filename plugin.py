@@ -26,9 +26,19 @@ class Main:
             pc.fetchRunningAt(self.params.get('pointintime'), self.params.get('channels'))
         elif self.info == 'gettimers':
             pc.fetchTimers()
+        elif self.info == 'getbroadcasts':
+            xbmcgui.Window(10700).setProperty('channel_change', 'true')
+            channel_ids = self.params.get('channelids')
+            if not channel_ids:
+                xbmcgui.Window(10700).clearProperty('channel_change')
+                return
+            pc.fetchBroadcasts(self.params.get('channelnum'), json.loads(channel_ids))
 
         xbmcplugin.addDirectoryItems(self.widget_handle, pc.result())
         xbmcplugin.endOfDirectory(handle=self.widget_handle)
+
+        if self.info == 'getbroadcasts':
+            xbmcgui.Window(10700).clearProperty('channel_change')
 
     def _parse_argv(self):
         try:

@@ -12,6 +12,7 @@ from resources.lib.widgets_datastore import WidgetsDataStore
 from resources.lib.pvr_running_at import PVRRunningAt
 from resources.lib.pvr_timers import PVRTimers
 from resources.lib.gui_channelguide import Gui_ChannelGuide
+from resources.lib.pvr_channellist import PVRChannelList
 #######################################################################################
 
 ADDON     = xbmcaddon.Addon()
@@ -41,6 +42,9 @@ class Main:
         elif self.action == 'channelguide':
             ui= Gui_ChannelGuide( "script-channelguide.xml", CWD )
             ui.doModal()
+        elif self.action == 'loadchannelids':
+            cl = PVRChannelList()
+            cl.setChannelIds()
         elif self.action == 'info_runningat':
             running_at = PVRRunningAt()
             running_at.showInfo(self.params.get('bc_id'), self.params.get('c_id'), 'script-show_info.xml', CWD)

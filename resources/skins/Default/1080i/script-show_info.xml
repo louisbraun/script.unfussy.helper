@@ -25,13 +25,34 @@
                     <aligny>center</aligny>
                 </control>
                 <control type="label">
-                    <top>70</top>
+                    <visible>String.IsEmpty(Window.Property(episodename))</visible>
+                    <top>80</top>
                     <height>80</height>
                     <font>light60</font>
                     <textcolor>active</textcolor>
                     <label>$INFO[Window.Property(title)]</label>
                     <aligny>center</aligny>
                     <scroll>true</scroll>
+                </control>
+                <control type="group">
+                    <visible>!String.IsEmpty(Window.Property(episodename))</visible>
+                    <control type="label">
+                        <top>60</top>
+                        <height>80</height>
+                        <font>light60</font>
+                        <textcolor>active</textcolor>
+                        <label>$INFO[Window.Property(title)]</label>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <top>120</top>
+                        <height>80</height>
+                        <font>light36</font>
+                        <label>$INFO[Window.Property(episodename)]</label>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                    </control>
                 </control>
             </control>
             <control type="image">

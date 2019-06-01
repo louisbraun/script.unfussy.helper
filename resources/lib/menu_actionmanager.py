@@ -418,13 +418,19 @@ class MenuActionManager:
         if action_type > -1 and action_type < 8:
             path = self.actions[action_type][action]['path']
         if action_type == 0:
-            onclick = 'ActivateWindow(Videos,videodb://movies/%s/,return)' % path
+            if not path.startswith('recentlyadded'):
+                path = 'movies/' + path
+            onclick = 'ActivateWindow(Videos,videodb://%s/,return)' % path
         elif action_type == 1:
-            onclick = 'ActivateWindow(Videos,videodb://tvshows/%s/,return)' % path
+            if not path.startswith('recentlyadded') and not path.startswith('inprogress'):
+                path = 'tvshows/' + path
+            onclick = 'ActivateWindow(Videos,videodb://%s/,return)' % path
         elif action_type == 2:
             onclick = 'ActivateWindow(Music,musicdb://%s/,return)' % path
         elif action_type == 3:
-            onclick = 'ActivateWindow(Videos,videodb://musicvideos/%s/,return)' % path
+            if not path.startswith('recentlyadded'):
+                path = 'musicvideos/' + path
+            onclick = 'ActivateWindow(Videos,videodb://%s/,return)' % path
         elif action_type == 4 or action_type == 5 or action_type == 6:
             onclick = 'ActivateWindow(%s)' % path
         elif action_type == 7:

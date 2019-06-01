@@ -9,14 +9,40 @@ ADDON     = xbmcaddon.Addon()
 
 class WidgetManager:
     #############################################################
-    #Categories:
+    # Categories:
     # 0:  Live TV Widget
+    #     Type 0: LiveTV
+    #     Type 1: Recordings
+    #     Type 2: GTO
+    #     Type 4: Running At
+    #     Type 5: Timers
     # 1:  Movie Widget
-    # 2:  TV SHow Widget
+    #     Type 0: Inprogress Movies
+    #     Type 1: Recently added Movies
+    #     Type 2: Movie Playlist
+    # 2:  TVShow Widget
+    #     Type 0: Recently added TVShows
+    #     Type 1: Inprogress TVShows
+    #     Type 2: Series Playlist
+    #     Type 3: Episode Playlist
     # 3:  Music Widget
+    #     Type 0: unplayed albums
+    #     Type 1: mostplayed albums
+    #     Type 2: random albums
+    #     Type 3: music playlist - songs
+    #     Type 4: music playlist - albums
+    #     Type 5: music playlist - artists
     # 4:  Music Video Widget
+    #     Type 0: recent unwatched musicvideos
+    #     Type 1: random_musicvideos
+    #     Type 2: musicvideo playlist
     # 5:  Addon Widget
+    #     Type 0: addons
+    #     Type 1: addon path
+    #     Type 2: favorites
     # 6:  Weather Widget
+    #     Type 0: weather hourly
+    #     Type 1: weather daily
     ##############################################################
 
     def __init__(self):
@@ -36,6 +62,7 @@ class WidgetManager:
             [
                 {
                     'header': ADDON.getLocalizedString(30208),
+                    'headeraction': 'Action(PlayPvrTV)',
                     'description': ADDON.getLocalizedString(30209),
                     'path': 'pvr://channels/tv/*',
                     'sortby': '',
@@ -60,6 +87,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30210),
+                    'headeraction': 'ActivateWindow(tvrecordings)',
                     'description': ADDON.getLocalizedString(30211),
                     'path': 'pvr://recordings/tv/active?view=flat',
                     'setlimit': True,
@@ -84,6 +112,7 @@ class WidgetManager:
                 },
                 {
                     'header': 'German Telecast Offers',
+                    'headeraction': 'ActivateWindow(tvguide)',
                     'description': ADDON.getLocalizedString(30268),
                     'setlimit': False,
                     'path': 'plugin://script.service.gto?action=getcontent&ts=$INFO[Window(Home).Property(GTO.timestamp)]',
@@ -100,6 +129,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30224),
+                    'headeraction': 'ActivateWindow(tvguide)',
                     'description': ADDON.getLocalizedString(30225),
                     'setlimit': False,
                     'path': 'plugin://script.unfussy.helper/?info=getrunningat&reload=$INFO[Window(Home).Property(widgetreload-runningat)]',
@@ -116,6 +146,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30226),
+                    'headeraction': 'ActivateWindow(tvtimers)',
                     'description': ADDON.getLocalizedString(30227),
                     'path': 'plugin://script.unfussy.helper/?info=gettimers&reload=$INFO[Window(Home).Property(widgetreload-timers)]',
                     'onclick': 'RunScript(script.unfussy.helper,action=info_timer&timer_id=$INFO[ListItem.Property(timerid)])',
@@ -139,6 +170,7 @@ class WidgetManager:
             [
                 {
                     'header': ADDON.getLocalizedString(30212),
+                    'headeraction': 'ActivateWindow(Videos,videodb://movies/titles/,return)',
                     'description': ADDON.getLocalizedString(30213),
                     'path': 'special://skin/playlists/inprogress_movies.xsp',
                     'setlimit': True,
@@ -154,6 +186,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30214),
+                    'headeraction': 'ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)',
                     'description': ADDON.getLocalizedString(30215),
                     'path': 'special://skin/playlists/recent_unwatched_movies.xsp',
                     'setlimit': True,
@@ -189,6 +222,7 @@ class WidgetManager:
             [
                 {
                     'header': ADDON.getLocalizedString(30216),
+                    'headeraction': 'ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)',
                     'description': ADDON.getLocalizedString(30217),
                     'path': 'special://skin/playlists/recent_unwatched_episodes.xsp',
                     'setlimit': True,
@@ -204,6 +238,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30218),
+                    'headeraction': 'ActivateWindow(Videos,videodb://inprogresstvshows/,return)',
                     'description': ADDON.getLocalizedString(30219),
                     'path': 'plugin://script.unfussy.helper/?info=getnextepisodes&reload=$INFO[Window(Home).Property(widgetreload-nextepisodes)]',
                     'setlimit': True,
@@ -255,6 +290,7 @@ class WidgetManager:
             [
                 {
                     'header': ADDON.getLocalizedString(30238),
+                    'headeraction': 'ActivateWindow(Music,musicdb://recentlyaddedalbums/,return)',
                     'description': ADDON.getLocalizedString(30239),
                     'path': 'special://skin/playlists/unplayed_albums.xsp',
                     'onclick': 'ActivateWindow(Music,musicdb://albums/$INFO[ListItem.DBID]/,return)',
@@ -271,6 +307,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30240),
+                    'headeraction': 'ActivateWindow(Music,musicdb://artists/,return)',
                     'description': ADDON.getLocalizedString(30241),
                     'path': 'special://skin/playlists/mostplayed_albums.xsp',
                     'onclick': 'ActivateWindow(Music,musicdb://albums/$INFO[ListItem.DBID]/,return)',
@@ -287,6 +324,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30245),
+                    'headeraction': 'ActivateWindow(Music,musicdb://artists/,return)',
                     'description': ADDON.getLocalizedString(30246),
                     'path': 'special://skin/playlists/random_albums.xsp',
                     'onclick': 'ActivateWindow(Music,musicdb://albums/$INFO[ListItem.DBID]/,return)',
@@ -405,6 +443,7 @@ class WidgetManager:
             [
                 {
                     'header': ADDON.getLocalizedString(30228),
+                    'headeraction': 'ActivateWindow(addonbrowser)',
                     'description': ADDON.getLocalizedString(30229),
                     'path': 'addons',
                     'static_content': True,
@@ -450,6 +489,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30230),
+                    'headeraction': 'ActivateWindow(favourites)',
                     'description': ADDON.getLocalizedString(30231),
                     'path': 'favourites://',
                     'setlimit': True,
@@ -470,6 +510,7 @@ class WidgetManager:
             [
                 {
                     'header': ADDON.getLocalizedString(30234),
+                    'headeraction': 'ActivateWindow(Weather)',
                     'description': ADDON.getLocalizedString(30235),
                     'path': 'weather_hourly_items',
                     'static_content': True,
@@ -486,6 +527,7 @@ class WidgetManager:
                 },
                 {
                     'header': ADDON.getLocalizedString(30236),
+                    'headeraction': 'ActivateWindow(Weather)',
                     'description': ADDON.getLocalizedString(30237),
                     'path': 'weather_daily_items',
                     'static_content': True,
@@ -628,6 +670,13 @@ class WidgetManager:
         if cat < 0 or type < 0:
             return ''
         return self.types[cat][type]['path']
+
+    def getHeaderAction(self, cat, type):
+        if cat < 0 or type < 0:
+            return ''
+        if 'headeraction' not in self.types[cat][type]:
+            return ''
+        return self.types[cat][type]['headeraction']
 
     def getLayout(self, cat, type, style):
         if cat < 0 or type < 0:

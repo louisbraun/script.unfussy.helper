@@ -181,15 +181,19 @@ class WidgetXMLWriter:
         #include home_widget_content
         include_widget_content = xml.SubElement(root, 'include')
         include_widget_content.set('name', 'home_widget_content')
+        include_widget_anchor = xml.SubElement(root, 'include')
+        include_widget_anchor.set('name', 'home_widget_anchors')
         widget_id = 500
+        num_widgets = len(widgets)
         for widget in widgets:
             if not widget['visible']: 
                 continue
             self.widgetItem(include_widget_content, widget, widget_id)
+            self.widgetAnchor(include_widget_anchor, widget, widget_id, num_widgets)
             if self.wm.isAddonWidget(widget['category'], widget['type']):
                 self.writeStaticContent(root, widget, widget_id)
             widget_id += 1
-
+        self.createWidgetHeaderCond(root, widgets)
         indent(root)
         #log("xml: \n%s" % xml.tostring(root))
         #log("write to %s" % SKININCLUDEPATH)
@@ -222,6 +226,49 @@ class WidgetXMLWriter:
         self.setParam(widget_item, 'sortorder', self.wm.getSortorder(widget['category'], widget['type']))
         if self.wm.hasTarget(widget['category'], widget['type']):
             self.setParam(widget_item, 'target', self.wm.getTarget(widget['category'], widget['type']))
+
+    def widgetAnchor(self, parent, widget, id, num_widgets):
+        anchor = xml.SubElement(parent, 'control')
+        anchor.set('type', 'button')
+        anchor.set('id', str(id) + '777')
+        visible = xml.SubElement(anchor, 'visible')
+        visible.set('allowhiddenfocus', 'true')
+        visible.text = 'false'
+        onright = xml.SubElement(anchor, 'onright')
+        onright.text = 'SetProperty(active_channel,' + str(id) + ')'
+        onright2 = xml.SubElement(anchor, 'onright')
+        onright2.text = str(id)
+        onleft = xml.SubElement(anchor, 'onleft')
+        onleft.text = '9001'
+        onup = xml.SubElement(anchor, 'onup')
+        if id == 500:
+            onup.text = '9001'
+        else:
+            onup.text = 'SetFocus(' + str(id-1) + ')'
+        ondown = xml.SubElement(anchor, 'ondown')
+        if id == (500 + num_widgets - 1):
+            ondown.text = 'SetFocus(500)'
+        else:
+            ondown.text = 'SetFocus(' + str(id+1) + ')'
+        onclick = xml.SubElement(anchor, 'onclick')
+        onclick.text = self.getOnClick(widget)
+
+    def getOnClick(self, widget):
+        cat = widget['category']
+        type = widget['type']
+        onclick = ''
+        if (cat == 1 and type == 2) or (cat == 2 and (type == 2 or type == 3)) or (cat == 4 and type == 2):
+            onclick = 'ActivateWindow(Videos,special://profile/playlists/video/%s,return)' % widget['playlist']
+        elif cat == 3 and (type == 3 or type == 4 or type == 5):
+            onclick = 'ActivateWindow(Music,special://profile/playlists/music/%s,return)' % widget['playlist']
+        elif cat == 5 and type == 1:
+            addonpath = widget['addonpath']['path']
+            first_slash = addonpath.find('/',10)
+            plugin_id = addonpath[9:first_slash]
+            onclick = 'RunAddon(' + plugin_id + ')' 
+        else:
+            onclick = self.wm.getHeaderAction(widget['category'], widget['type'])
+        return onclick
 
     def getPath(self, widget):
         path = ''
@@ -263,4 +310,21 @@ class WidgetXMLWriter:
             thumb.text = encode4XML(addon['thumb'])
             onclick = xml.SubElement(item, 'onclick')
             onclick.text = encode4XML('RunAddon(' + addon['id'] + ')')
-            
+
+    def createWidgetHeaderCond(self, parent, widgets):
+        id = 500
+        num_widgets = len(widgets)
+        cond = 'ControlGroup(9002).HasFocus'
+        if num_widgets > 0:
+            cond += ' | '
+        for widget in widgets:
+            if not widget['visible']: 
+                continue
+            cond += 'Control.HasFocus(' + str(id) + '777)'
+            if id < (500 + num_widgets - 1):
+                cond += ' | '
+            id += 1
+        include_item = xml.SubElement(parent, 'include')
+        include_item.set('name', 'cond_show_updown_arrows')
+        visible_item = xml.SubElement(include_item, 'visible')
+        visible_item.text = cond

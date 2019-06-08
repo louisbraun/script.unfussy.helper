@@ -75,7 +75,6 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         channel_index = self.list_channels.getSelectedPosition()
         channel_uid = self.channelgroups[group_index]['channels'][channel_index]['broadcastnow']['channeluid']
         self._close()
-        xbmc.sleep(300)
         self.switchChannel(channel_uid)
 
     def onAction(self, action):
@@ -243,10 +242,13 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         xbmc.executebuiltin(action)
 
     def pvrBackendAddonId(self):
-        query_addons = json_call('Addons.GetAddons', params={ 'type': 'xbmc.pvrclient' })
+        query_addons = json_call('Addons.GetAddons', params={ 'type': 'xbmc.pvrclient' }, properties=['enabled'])
         try:
             addons = query_addons['result']['addons']
-            return addons[0]['addonid'].encode('utf-8')
+            for addon in addons:
+                if addon['enabled']:
+                    return addon['addonid'].encode('utf-8')
+            return None
         except Exception:
             log('error querying pvr addon: %s' % Exception, WARNING )
             return None

@@ -74,6 +74,9 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         group_index = self.list_channelgroups.getSelectedPosition()
         channel_index = self.list_channels.getSelectedPosition()
         channel_uid = self.channelgroups[group_index]['channels'][channel_index]['broadcastnow']['channeluid']
+        xbmc.executebuiltin('SetProperty(noslide,true,10608)')
+        self.setProperty('noslide', 'true')
+        xbmc.sleep(10)
         self._close()
         self.switchChannel(channel_uid)
 

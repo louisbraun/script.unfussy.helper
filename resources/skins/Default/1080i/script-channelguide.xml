@@ -2,10 +2,13 @@
 <window>
     <allowoverlay>no</allowoverlay>
     <onload>ClearProperty(showdetail)</onload>
+    <onload>ClearProperty(noslide)</onload>
     <defaultcontrol always="true">100</defaultcontrol>
     <controls>
         <control type="group">
-            <include>close_slight_left</include>
+            <animation type="WindowClose" condition="!String.IsEqual(Window.Property(noslide),true)">
+                <effect type="slide" start="0" end="-320" time="300" tween="cubic" easing="out" />
+            </animation>
             <width>600</width>
             <control type="image">
                 <left>101</left>

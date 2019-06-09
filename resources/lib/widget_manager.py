@@ -82,6 +82,13 @@ class WidgetManager:
                             'widget': 'livetv_large',
                             'width': 260,
                             'height': 425
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': ADDON.getLocalizedString(30288),
+                            'widget': 'livetv_wide',
+                            'width': 410,
+                            'height': 300
                         }
                     ]
                 },
@@ -103,10 +110,17 @@ class WidgetManager:
                         },
                         {
                             'label': ADDON.getLocalizedString(30264),
-                            'desc': ADDON.getLocalizedString(30266),
+                            'desc': ADDON.getLocalizedString(30267),
                             'widget': 'recordings_large',
                             'width': 260,
                             'height': 425
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': ADDON.getLocalizedString(30288),
+                            'widget': 'recordings_wide',
+                            'width': 410,
+                            'height': 300
                         }
                     ]
                 },

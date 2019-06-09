@@ -5,6 +5,9 @@
     <onload>ClearProperty(noslide)</onload>
     <defaultcontrol always="true">100</defaultcontrol>
     <controls>
+        <control type="group" id="14">
+            <include>pvr_osd_groups_detail</include>
+        </control>
         <control type="group">
             <animation type="WindowClose" condition="!String.IsEqual(Window.Property(noslide),true)">
                 <effect type="slide" start="0" end="-320" time="300" tween="cubic" easing="out" />
@@ -42,9 +45,6 @@
                     </include>
                 </focusedlayout>
             </control>
-        </control>
-        <control type="group" id="14">
-            <include>pvr_osd_groups_detail</include>
         </control>
     </controls>
 </window>

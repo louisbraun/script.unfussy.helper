@@ -105,8 +105,8 @@ class Main:
         xbmc.executebuiltin('Skin.SetBool(use_channelgroups)')
         xbmc.executebuiltin('Skin.SetBool(hide_all_channels)')
         xbmc.executebuiltin('Skin.SetBool(start_live_tv)')
-        xbmc.executebuiltin('Skin.SetBool(use_animations_fanart)')
-        xbmc.executebuiltin('Skin.SetBool(use_animations_wall)')
+        xbmc.executebuiltin('Skin.SetBool(use_view_animations)')
+        xbmc.executebuiltin('Skin.SetBool(use_pvr_view_animations)')
         xbmc.executebuiltin('Skin.SetBool(music_background_fanart)')
         xbmc.executebuiltin('Skin.SetBool(music_enable_scrollingtext)')
 

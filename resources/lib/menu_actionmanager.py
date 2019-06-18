@@ -344,6 +344,16 @@ class MenuActionManager:
                 'label': '8',
                 'path': 'Weather',
                 'thumb': 'icons/mainmenu/weather.png'
+            },
+            {
+                'label': ADDON.getLocalizedString(30289),
+                'path': 'special://profile/playlists/video/',
+                'thumb': 'defaultplaylist.png'
+            },
+            {
+                'label': ADDON.getLocalizedString(30290),
+                'path': 'special://profile/playlists/music/',
+                'thumb': 'defaultplaylist.png'
             }
         ])
         # 7:  Execute Command
@@ -382,7 +392,6 @@ class MenuActionManager:
             return self.actiontypes[index]
 
     def getActionName(self, action_type, action):
-        log("action_type %s, action %s" % (action_type, action))
         if action == -1:
             return ADDON.getLocalizedString(30116)
         label = ''
@@ -397,7 +406,6 @@ class MenuActionManager:
                 self.loadAddons()
             index = self.getAddonIndex(action)
             label = self.addons[index]['name']
-        log("getActionName: %s" % label)
         return label
 
     def getThumb(self, action_type, action):
@@ -431,8 +439,15 @@ class MenuActionManager:
             if not path.startswith('recentlyadded'):
                 path = 'musicvideos/' + path
             onclick = 'ActivateWindow(Videos,videodb://%s/,return)' % path
-        elif action_type == 4 or action_type == 5 or action_type == 6:
+        elif action_type == 4 or action_type == 5:
             onclick = 'ActivateWindow(%s)' % path
+        elif action_type == 6:
+            if action < 5:
+                onclick = 'ActivateWindow(%s)' % path
+            elif action == 5:
+                onclick = 'ActivateWindow(Videos,%s,return)' % path
+            elif action == 6:
+                onclick = 'ActivateWindow(Music,%s,return)' % path
         elif action_type == 7:
             onclick = 'Action(%s)' % path
         elif action_type == 8:

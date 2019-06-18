@@ -592,3 +592,11 @@ msgstr ""
 msgctxt "#30288"
 msgid "with epg images"
 msgstr ""
+
+msgctxt "#30289"
+msgid "Video Playlists"
+msgstr ""
+
+msgctxt "#30290"
+msgid "Music Playlists"
+msgstr ""

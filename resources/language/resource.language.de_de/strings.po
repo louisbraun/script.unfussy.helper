@@ -596,3 +596,11 @@ msgstr "Kanalnummer"
 msgctxt "#30288"
 msgid "with epg images"
 msgstr "mit EPG Bildern"
+
+msgctxt "#30289"
+msgid "Video Playlists"
+msgstr "Video Playlisten"
+
+msgctxt "#30290"
+msgid "Music Playlists"
+msgstr "Musik Playlisten"

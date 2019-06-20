@@ -135,6 +135,18 @@
                     <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
                     <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
                 </control>
+                <control type="radiobutton" id="212">
+                    <textoffsetx>10</textoffsetx>
+                    <height>80</height>
+                    <aligny>center</aligny>
+                    <font>regular36</font>
+                    <invalidcolor>invalid</invalidcolor>
+                    <textcolor>active</textcolor>
+                    <selectedcolor>white</selectedcolor>
+                    <label>$ADDON[script.unfussy.helper 30010]</label>
+                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
+                    <texturenofocus />
+                </control> 
                 <control type="grouplist" id="208">
                     <orientation>horizontal</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
@@ -174,23 +186,70 @@
                     <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
                     <texturenofocus colordiffuse="background">colors/white.png</texturenofocus>
                 </control>
-                <control type="radiobutton" id="212">
-                    <textoffsetx>10</textoffsetx>
+                <control type="grouplist" id="230">
                     <height>80</height>
-                    <aligny>center</aligny>
-                    <font>regular36</font>
-                    <invalidcolor>invalid</invalidcolor>
-                    <textcolor>active</textcolor>
-                    <selectedcolor>white</selectedcolor>
-                    <label>$ADDON[script.unfussy.helper 30010]</label>
-                    <texturefocus colordiffuse="activedialog">colors/white.png</texturefocus>
-                    <texturenofocus />
+                    <orientation>horizontal</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>10</left>
+                    <control type="label" id="231">
+                        <width>auto</width>
+                        <height>80</height>                    
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                        <textcolor>active</textcolor>
+                        <label>$ADDON[script.unfussy.helper 30291]:</label>
+                    </control>
+                    <control type="label" id="232">
+                        <top>0</top>
+                        <width>780</width>
+                        <height>80</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>regular36</font>
+                    </control>
+                    <control type="radiobutton" id="233">
+                        <top>15</top>
+                        <left>10</left>
+                        <width>60</width>
+                        <height>60</height>
+                        <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                        <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-down.png</textureradiooffnofocus>
+                        <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradioondisabled>
+                        <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</textureradiooffdisabled>
+                        <radiowidth>60</radiowidth>
+                        <radioheight>60</radioheight>
+                        <radioposx>1</radioposx>
+                        <radioposy>0</radioposy>
+                    </control>
+                    <control type="radiobutton" id="234">
+                        <top>15</top>
+                        <width>60</width>
+                        <height>60</height>
+                        <texturefocus colordiffuse="activedialog">buttons/button_round.png</texturefocus>
+                        <texturenofocus colordiffuse="background">buttons/button_round.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="white">buttons/spinctrl/arrow-light-up.png</textureradiooffnofocus>
+                        <textureradioondisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradioondisabled>
+                        <textureradiooffdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureradiooffdisabled>
+                        <radiowidth>60</radiowidth>
+                        <radioheight>60</radioheight>
+                        <radioposx>1</radioposx>
+                        <radioposy>-2</radioposy>
+                    </control>
                 </control>
+
+
             </control>
             <control type="grouplist" id="400">
                 <left>20</left>
                 <right>20</right>
-                <top>660</top>
+                <top>680</top>
                 <orientation>horizontal</orientation>
                 <onleft condition="!Control.IsVisible(110)">100</onleft>
                 <onleft condition="Control.IsVisible(110)">110</onleft>
@@ -253,7 +312,7 @@
             <control type="grouplist" id="500">
                 <left>20</left>
                 <right>20</right>
-                <top>600</top>
+                <top>620</top>
                 <align>center</align>
                 <onleft condition="!Control.IsVisible(110)">100</onleft>
                 <onleft condition="Control.IsVisible(110)">110</onleft>

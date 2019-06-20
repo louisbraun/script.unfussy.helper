@@ -604,3 +604,19 @@ msgstr "Video Playlisten"
 msgctxt "#30290"
 msgid "Music Playlists"
 msgstr "Musik Playlisten"
+
+msgctxt "#30291"
+msgid "Icon Size"
+msgstr "Icon Größe"
+
+msgctxt "#30292"
+msgid "small"
+msgstr "klein"
+
+msgctxt "#30293"
+msgid "medium"
+msgstr "mittel"
+
+msgctxt "#30294"
+msgid "large"
+msgstr "groß"

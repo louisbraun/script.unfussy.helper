@@ -23,6 +23,13 @@ class MenuActionManager:
     # 10: Start Addon
     ##############################################################
     def __init__(self):
+
+        self.thumbsizes = [
+            ADDON.getLocalizedString(30294),
+            ADDON.getLocalizedString(30293),
+            ADDON.getLocalizedString(30292)
+        ]
+
         self.actiontypes = [
             ADDON.getLocalizedString(30100),
             ADDON.getLocalizedString(30101),

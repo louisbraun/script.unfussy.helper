@@ -600,3 +600,19 @@ msgstr ""
 msgctxt "#30290"
 msgid "Music Playlists"
 msgstr ""
+
+msgctxt "#30291"
+msgid "Icon Size"
+msgstr ""
+
+msgctxt "#30292"
+msgid "small"
+msgstr ""
+
+msgctxt "#30293"
+msgid "medium"
+msgstr ""
+
+msgctxt "#30294"
+msgid "large"
+msgstr ""

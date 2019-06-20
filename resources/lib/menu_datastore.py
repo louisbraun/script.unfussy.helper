@@ -88,10 +88,14 @@ class MenuDataStore:
             return False
 
     def getValue(self, index_menu, index_submenu, item):
+        value = 0
         if index_submenu > -1:
-            return self.menu[index_menu]['submenu'][index_submenu][item]
+            if item in self.menu[index_menu]['submenu'][index_submenu]:
+                value = self.menu[index_menu]['submenu'][index_submenu][item]
         else:
-            return self.menu[index_menu][item]
+            if item in self.menu[index_menu]:
+                value = self.menu[index_menu][item]
+        return value
 
     def getLabel(self, index_menu, index_submenu):
         label = self.menu[index_menu]['label']
@@ -107,6 +111,7 @@ class MenuDataStore:
             self.menu[index_menu]['submenu'][index_submenu][item] = value
         else:
             self.menu[index_menu][item] = value
+            log('item changed %s' % self.menu[index_menu])
 
     def newElement(self, index_menu, index_submenu):
         self.changed = True
@@ -202,7 +207,8 @@ class MenuXMLWriter:
 
     def mainMenuItem(self, parent, item, sub_id = 0):
         label = self.getLabel(item['label'])
-        self.menuItem(parent, label, item['thumb'], item['actiontype'], item['action'], sub_id)
+        thumbsize = self.getThumbsize(item)
+        self.menuItem(parent, label, item['thumb'], thumbsize, item['actiontype'], item['action'], sub_id)
 
     def submenusItem(self, parent, sub_id):
         include_submenu = xml.SubElement(parent, 'include')
@@ -219,9 +225,10 @@ class MenuXMLWriter:
             if not item['visible']: 
                 continue
             label = self.getLabel(item['label'])
-            self.menuItem(item_content, label, item['thumb'], item['actiontype'], item['action'], -1)
+            thumbsize = self.getThumbsize(item)
+            self.menuItem(item_content, label, item['thumb'], thumbsize, item['actiontype'], item['action'], -1)
 
-    def menuItem(self, parent, label, thumb, actiontype, action, sub_id):
+    def menuItem(self, parent, label, thumb, thumbsize, actiontype, action, sub_id):
         xml_item = xml.SubElement(parent, 'item')
         xml_label = xml.SubElement(xml_item, 'label')
         xml_label.text = encode4XML(label)
@@ -238,6 +245,9 @@ class MenuXMLWriter:
             xml_onclick2.set('condition', '!' + self.am.getOnClickCond(actiontype))
             xml_onclick2.text = self.am.getOnClickAlt(actiontype)
 
+        xml_thumbsize = xml.SubElement(xml_item, 'property')
+        xml_thumbsize.set('name', 'thumbsize')
+        xml_thumbsize.text = '$NUMBER[' + str(thumbsize) + ']'
         if sub_id == -1:
             return
         submenu_id = xml.SubElement(xml_item, 'property')
@@ -248,3 +258,9 @@ class MenuXMLWriter:
         if label.isdigit():
             label = '$LOCALIZE[' + label + ']'
         return label
+
+    def getThumbsize(self, item):
+        if 'thumbsize' in item:
+            return item['thumbsize']
+        else:
+            return 0

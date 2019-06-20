@@ -31,6 +31,7 @@ class Gui_Menu( xbmcgui.WindowXMLDialog ):
         self.label_actiontype = self.getControl(215)
         self.label_action = self.getControl(219)
         self.button_new_submenu = self.getControl(222)
+        self.label_thumbsize = self.getControl(232)
         #init
         self.renderMenu()
         self.setFocus(self.control_menu)
@@ -67,6 +68,10 @@ class Gui_Menu( xbmcgui.WindowXMLDialog ):
             self.showSubmenu()
         elif control_id == 110:
             self.hideSubmenu()
+        elif control_id == 233:
+            self.thumbSize(next=True)
+        elif control_id == 234:
+            self.thumbSize(next=False)
 
     def onAction(self, action):
         self.setMenuIndex()
@@ -152,15 +157,21 @@ class Gui_Menu( xbmcgui.WindowXMLDialog ):
             listitem.setProperty('is_visible', 'true')
         else:
             listitem.setProperty('is_visible', 'false')
+        if 'thumbsize' in menuitem:
+             listitem.setProperty('thumbsize', str(menuitem['thumbsize']))
+        else:
+             listitem.setProperty('thumbsize', '0')
         return listitem
 
     #Actions
 
     def setDetail(self):
-        log("index_menu: %s, index_submenu %s" % (self.index_menu, self.index_submenu))
         #radio "is visible"
         is_visible = self.menu.getValue(self.index_menu, self.index_submenu, 'visible')
         self.radio_visible.setSelected(is_visible)
+        #set icon size
+        thumbsize = self.menu.getValue(self.index_menu, self.index_submenu, 'thumbsize')
+        self.label_thumbsize.setLabel(self.am.thumbsizes[int(thumbsize)])
         #actiontype and action
         action_type = self.menu.getValue(self.index_menu, self.index_submenu, 'actiontype')
         action = self.menu.getValue(self.index_menu, self.index_submenu, 'action')
@@ -274,3 +285,15 @@ class Gui_Menu( xbmcgui.WindowXMLDialog ):
         self.index_submenu = -1
         self.reloadMenu()
         self.setDetail()
+
+    def thumbSize(self, next=False):
+        thumbsize = int(self.menu.getValue(self.index_menu, self.index_submenu, 'thumbsize'))
+        if next:
+            thumbsize = (thumbsize+1) % 3
+        else:
+            thumbsize = thumbsize - 1
+            if thumbsize < 0:
+                thumbsize = 2
+        self.menu.setValue(self.index_menu, self.index_submenu, 'thumbsize', thumbsize)
+        self.label_thumbsize.setLabel(self.am.thumbsizes[thumbsize])
+        self.reloadMenu()

@@ -241,6 +241,10 @@ msgctxt "#30116"
 msgid "undefined"
 msgstr ""
 
+msgctxt "#30117"
+msgid "Do you really want to set all widgets back to default?\nAll customizations are lost!"
+msgstr ""
+
 msgctxt "#30200"
 msgid "Live TV Widget"
 msgstr ""

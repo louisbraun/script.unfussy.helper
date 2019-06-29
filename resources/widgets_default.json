@@ -1,6 +1,6 @@
 [
     {
-        "header": "Live TV",
+        "header": "30208",
         "category": 0,
         "type": 0,
         "style": 0,
@@ -9,7 +9,7 @@
         "visible": true
     },
     {
-        "header": "TV Aufnahmen",
+        "header": "30210",
         "category": 0,
         "type": 1,
         "style": 0,
@@ -18,7 +18,7 @@
         "visible": true
     },
     {
-        "header": "Begonnene Filme",
+        "header": "30212",
         "category": 1,
         "type": 0,
         "style": 0,
@@ -27,7 +27,7 @@
         "visible": true
     },
     {
-        "header": "Neue Filme",
+        "header": "30214",
         "category": 1,
         "type": 1,
         "style": 0,
@@ -36,7 +36,7 @@
         "visible": true
     },
     {
-        "header": "Anstehende Episoden",
+        "header": "30218",
         "category": 2,
         "type": 1,
         "style": 0,
@@ -45,7 +45,7 @@
         "visible": true
     },
     {
-        "header": "Neue Episoden",
+        "header": "30216",
         "category": 2,
         "type": 0,
         "style": 0,

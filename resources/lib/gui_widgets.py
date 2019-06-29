@@ -124,7 +124,7 @@ class Gui_Widgets( xbmcgui.WindowXMLDialog ):
     def createListItem(self, widget):
         listitem = xbmcgui.ListItem(widget['header'])
         if widget['header'].isdigit():
-            listitem.setLabel(xbmc.getLocalizedString(int(widget['header'])))
+            listitem.setLabel(ADDON.getLocalizedString(int(widget['header'])))
         listitem.setArt({ 'thumb': 'icons/settings/widget.png' })
         if widget['visible']:
             listitem.setProperty('is_visible', 'true')

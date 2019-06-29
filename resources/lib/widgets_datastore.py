@@ -124,7 +124,7 @@ class WidgetsDataStore:
     def getHeader(self, index_widget):
         header = self.widgets[index_widget]['header']
         if header.isdigit():
-            header = '$LOCALIZE[' + header + ']'
+            header = ADDON.getLocalizedString(int(header))
         return header
 
     def setValue(self, index_widget, item, value):
@@ -204,7 +204,10 @@ class WidgetXMLWriter:
         widget_item = xml.SubElement(parent, 'include')
         widget_item.set('content', 'widget_mainmenu')
         self.setParam(widget_item, 'id', id)
-        self.setParam(widget_item, 'header', widget['header'])
+        header = widget['header']
+        if header.isdigit():
+            header = ADDON.getLocalizedString(int(header))
+        self.setParam(widget_item, 'header', header)
         if self.wm.setLimit(widget['category'], widget['type']):
             self.setParam(widget_item, 'limit', widget['limit'])
         self.setParam(widget_item, 'type', self.wm.getStyleWidget(widget['category'], widget['type'], widget['style']))

@@ -14,8 +14,8 @@ class WidgetManager:
     #     Type 0: LiveTV
     #     Type 1: Recordings
     #     Type 2: GTO
-    #     Type 4: Running At
-    #     Type 5: Timers
+    #     Type 3: Running At
+    #     Type 4: Timers
     # 1:  Movie Widget
     #     Type 0: Inprogress Movies
     #     Type 1: Recently added Movies

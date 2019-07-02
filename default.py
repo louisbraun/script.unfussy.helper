@@ -62,9 +62,6 @@ class Main:
             timers = PVRTimers()
             timers.refresh()
         elif self.action == 'check_includes':
-            home = xbmcgui.Window(10000)
-            home.setProperty('custombusy', 'true')
-            home.setProperty('custombusyreason', 'checkincludes')
             mds = MenuDataStore()
             wds = WidgetsDataStore()
             built_menu_includes = mds.checkXMLIncludes()
@@ -72,8 +69,6 @@ class Main:
             changed = built_menu_includes or built_widget_includes
             if not changed:
                 self.setWidgetIds()
-            home.clearProperty('custombusy')
-            home.clearProperty('custombusyreason')
         elif self.action == 'check_defaultsettings':
             init_done = xbmc.getCondVisibility('Skin.HasSetting(init_done)')
             if not init_done:

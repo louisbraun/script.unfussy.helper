@@ -60,6 +60,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         self.list_channels = self.getControl(13)
         self.active_channel_number = self.getActiveChannelNumber()
         self.group_index, self.channel_index = self.getActiveChannelIndex()
+        self.jump_to_next_group = xbmc.getCondVisibility('Skin.HasSetting(jump_to_next_channelgroup)')
         self.renderChannelGroups()
         self.list_channelgroups.selectItem(self.group_index)
         self.renderChannels()
@@ -123,7 +124,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             self.updateChannels()
         elif focus == 13:
             self.channel_index = self.list_channels.getSelectedPosition()
-            if self.channel_index == len(self.channelgroups[self.group_index]['channels'])-1:
+            if self.channel_index == len(self.channelgroups[self.group_index]['channels'])-1 and self.jump_to_next_group:
                 self.groupUp()
 
     def keyDown(self):
@@ -134,7 +135,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             self.updateChannels()
         elif focus == 13:
             self.channel_index = self.list_channels.getSelectedPosition()
-            if self.channel_index == 0:
+            if self.channel_index == 0 and self.jump_to_next_group:
                 self.groupDown()
 
     def groupUp(self):

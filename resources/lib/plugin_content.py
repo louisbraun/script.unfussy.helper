@@ -96,6 +96,7 @@ class PluginContent:
         query = json_call('VideoLibrary.GetTVShows',
                             properties=[], 
                             limit=25,
+                            sort={"method": "lastplayed", "order": "descending"},
                             query_filter={'field': 'inprogress', 'operator': 'true', 'value': ''}
                         )
         try:

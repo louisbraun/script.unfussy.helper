@@ -620,3 +620,7 @@ msgstr ""
 msgctxt "#30294"
 msgid "large"
 msgstr ""
+
+msgctxt "#30295"
+msgid "with fanart"
+msgstr ""

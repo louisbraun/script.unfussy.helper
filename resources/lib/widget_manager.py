@@ -195,6 +195,13 @@ class WidgetManager:
                             'widget': 'movies',
                             'width': 260,
                             'height': 425
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': ADDON.getLocalizedString(30295),
+                            'widget': 'movies_landscape',
+                            'width': 356,
+                            'height': 250
                         }
                     ]
                 },
@@ -211,6 +218,13 @@ class WidgetManager:
                             'widget': 'movies',
                             'width': 260,
                             'height': 425
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': ADDON.getLocalizedString(30295),
+                            'widget': 'movies_landscape',
+                            'width': 356,
+                            'height': 250
                         }
                     ]
                 },
@@ -226,6 +240,13 @@ class WidgetManager:
                             'widget': 'movies',
                             'width': 260,
                             'height': 425
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': ADDON.getLocalizedString(30295),
+                            'widget': 'movies_landscape',
+                            'width': 356,
+                            'height': 250
                         }
                     ]
                 }
@@ -279,6 +300,13 @@ class WidgetManager:
                             'widget': 'movies',
                             'width': 260,
                             'height': 425
+                        },
+                        {
+                            'label': ADDON.getLocalizedString(30265),
+                            'desc': ADDON.getLocalizedString(30295),
+                            'widget': 'movies_landscape',
+                            'width': 356,
+                            'height': 250
                         }
                     ]
                 },

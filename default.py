@@ -97,6 +97,7 @@ class Main:
     def setSkinDefaults(self):
         xbmc.executebuiltin('Skin.SetBool(init_done)')
         xbmc.executebuiltin('Skin.SetBool(tvguide_show_detail)')
+        xbmc.executebuiltin('Skin.SetBool(tvguide_show_channelgroups)')
         xbmc.executebuiltin('Skin.SetBool(use_channelgroups)')
         xbmc.executebuiltin('Skin.SetBool(jump_to_next_channelgroup)')
         xbmc.executebuiltin('Skin.SetBool(hide_all_channels)')

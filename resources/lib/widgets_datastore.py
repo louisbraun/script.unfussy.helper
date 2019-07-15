@@ -229,6 +229,8 @@ class WidgetXMLWriter:
         self.setParam(widget_item, 'sortorder', self.wm.getSortorder(widget['category'], widget['type']))
         if self.wm.hasTarget(widget['category'], widget['type']):
             self.setParam(widget_item, 'target', self.wm.getTarget(widget['category'], widget['type']))
+        if self.wm.showPlayStatus(widget['category'], widget['type']):
+            self.setParam(widget_item, 'showplaystatus', 'true')
 
     def widgetAnchor(self, parent, widget, id, num_widgets):
         anchor = xml.SubElement(parent, 'control')

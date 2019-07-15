@@ -769,3 +769,12 @@ class WidgetManager:
 
     def getTarget(self, cat, type):
         return self.types[cat][type]['target']
+
+    def showPlayStatus(self, cat, type):
+        if cat == 1 and type == 2:
+            return True
+        if cat == 2 and (type == 2 or type == 3):
+            return True
+        if cat == 4 and type == 2:
+            return True
+        return False

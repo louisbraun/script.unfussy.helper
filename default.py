@@ -40,7 +40,10 @@ class Main:
             ui.doModal()
             changed = ui.hasChanged()
         elif self.action == 'channelguide':
-            ui= Gui_ChannelGuide( "script-channelguide.xml", CWD )
+            xml_file = "script-channelguide.xml"
+            if xbmc.getCondVisibility('Skin.HasSetting(use_channelgroups_fullwidth)'):
+                xml_file = "script-channelguide-hor.xml"
+            ui= Gui_ChannelGuide( xml_file, CWD )
             ui.doModal()
         elif self.action == 'loadchannelids':
             cl = PVRChannelList()

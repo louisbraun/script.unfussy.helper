@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <allowoverlay>no</allowoverlay>
+    <onload>ClearProperty(showdetail)</onload>
+    <onload>ClearProperty(noslide)</onload>
+    <defaultcontrol always="true">100</defaultcontrol>
+    <controls>
+        <control type="group">
+            <bottom>0</bottom>
+            <height>300</height>
+            <animation type="WindowClose" condition="!String.IsEqual(Window.Property(noslide),true)">
+                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,300" time="300" tween="cubic" easing="out" />
+            </animation>
+            <control type="image">
+                <left>300</left>
+                <width>1</width>
+                <texture colordiffuse="border">colors/white.png</texture>
+            </control>
+            <control type="image">
+                <left>550</left>
+                <width>1</width>
+                <texture colordiffuse="border">colors/white.png</texture>
+            </control>
+            <control type="image">
+                <left>1320</left>
+                <width>1</width>
+                <texture colordiffuse="border">colors/white.png</texture>
+            </control>
+            <control type="image">
+                <height>1</height>
+                <texture colordiffuse="border">colors/white.png</texture>
+            </control>
+            <control type="fixedlist" id="12">
+                <left>300</left>
+                <width>250</width>
+                <focusposition>2</focusposition>
+                <orientation>vertical</orientation>
+                <scrolltime tween="cubic" easing="out">400</scrolltime>
+                <itemlayout width="250" height="60">
+                    <include content="pvr_channelsosd_groupitem_hor" />
+                </itemlayout>
+                <focusedlayout width="250" height="60">
+                    <include content="pvr_channelsosd_groupitem_hor">
+                        <param name="active" value="true" />
+                    </include>
+                </focusedlayout>
+            </control>
+            <control type="list" id="13">
+                <left>550</left>
+                <width>770</width>
+                <orientation>vertical</orientation>
+                <scrolltime tween="cubic" easing="out">400</scrolltime>
+                <itemlayout height="100">
+                    <include content="pvr_channelsosd_groupchannelitem" />
+                </itemlayout>
+                <focusedlayout height="100">
+                    <include content="pvr_channelsosd_groupchannelitem">
+                        <param name="active" value="true" />
+                    </include>
+                </focusedlayout>
+            </control>
+            <include>pvr_osd_groups_detail_hor</include>
+        </control>
+    </controls>
+</window>

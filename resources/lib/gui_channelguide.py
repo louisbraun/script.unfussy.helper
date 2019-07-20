@@ -54,6 +54,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         return True
 
     def onInit( self ):
+        self.hor_layout = xbmc.getCondVisibility('Skin.HasSetting(use_channelgroups_fullwidth)')
         if not self.channels_loaded:
             return
         self.list_channelgroups = self.getControl(12)
@@ -176,6 +177,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             self.list_channelgroups.addItem(listitem)
 
     def positionChannellist(self):
+        if self.hor_layout: return
         x = 100
         y = 0
         height = 1080

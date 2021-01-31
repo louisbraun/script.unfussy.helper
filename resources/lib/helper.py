@@ -15,32 +15,22 @@ from datetime import datetime, timedelta, tzinfo
 ADDON = xbmcaddon.Addon()
 ADDON_ID = ADDON.getAddonInfo('id')
 
-NOTICE = xbmc.LOGNOTICE
+INFO = xbmc.LOGINFO
 WARNING = xbmc.LOGWARNING
 DEBUG = xbmc.LOGDEBUG
+ERROR = xbmc.LOGERROR
 LOG_ENABLED = True if ADDON.getSetting('log') == 'true' else False
 DEBUGLOG_ENABLED = True if ADDON.getSetting('debuglog') == 'true' else False
 
 ########################
 
-def log(txt,loglevel=NOTICE,force=False):
+def log(txt,loglevel=DEBUG,force=False):
+    if (LOG_ENABLED or force) and loglevel not in [WARNING, ERROR]:
+        loglevel = INFO
 
-    if ((loglevel == NOTICE or loglevel == WARNING) and LOG_ENABLED) or (loglevel == DEBUG and DEBUGLOG_ENABLED) or force:
+    message = u'[ %s ] %s' % (ADDON_ID, txt)
+    xbmc.log(msg=message, level=loglevel)
 
-        ''' Python 2 requires to decode stuff at first
-        '''
-        try:
-            if isinstance(txt, str):
-                txt = txt.decode('utf-8')
-        except AttributeError:
-            pass
-
-        message = u'[ %s ] %s' % (ADDON_ID,txt)
-
-        try:
-            xbmc.log(msg=message.encode('utf-8'), level=loglevel) # Python 2
-        except TypeError:
-            xbmc.log(msg=message, level=loglevel)
 
 
 def json_call(method,properties=None,sort=None,query_filter=None,limit=None,params=None,item=None):
@@ -127,7 +117,7 @@ def pvrAvailable():
 def encode4XML(value):
     if isinstance(value, int):
         return str(value)
-    elif isinstance(value, unicode):
+    elif isinstance(value, str):
         return value
     else:
         return value.decode('utf-8')

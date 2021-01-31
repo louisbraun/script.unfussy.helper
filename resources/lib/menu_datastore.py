@@ -9,11 +9,11 @@ from resources.lib.menu_actionmanager import MenuActionManager
 #######################################################################################
 
 ADDON               = xbmcaddon.Addon()
-ADDONID             = ADDON.getAddonInfo('id').decode( 'utf-8' )
-CWD                 = ADDON.getAddonInfo('path').decode('utf-8')
-DEFAULTPATH         = xbmc.translatePath( os.path.join(CWD, 'resources','menu_default.json') ).decode("utf-8")
-CONFIGPATH          = os.path.join( xbmc.translatePath( "special://profile/" ).decode( 'utf-8' ), "addon_data", ADDONID, 'menu.json').decode("utf-8")
-SKININCLUDEPATH     = xbmc.translatePath( os.path.join('special://skin', 'xml','Includes_Home_Menucontent.xml') ).decode("utf-8")
+ADDONID             = ADDON.getAddonInfo('id')
+CWD                 = ADDON.getAddonInfo('path')
+DEFAULTPATH         = xbmc.translatePath( os.path.join(CWD, 'resources','menu_default.json') )
+CONFIGPATH          = os.path.join( xbmc.translatePath( "special://profile/" ), "addon_data", ADDONID, 'menu.json')
+SKININCLUDEPATH     = xbmc.translatePath( os.path.join('special://skin', 'xml','Includes_Home_Menucontent.xml') )
 
 #######################################################################################
 

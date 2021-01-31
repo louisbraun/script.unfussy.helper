@@ -16,7 +16,7 @@ from resources.lib.pvr_channellist import PVRChannelList
 #######################################################################################
 
 ADDON     = xbmcaddon.Addon()
-CWD       = ADDON.getAddonInfo('path').decode('utf-8')
+CWD       = ADDON.getAddonInfo('path')
 
 #######################################################################################
 

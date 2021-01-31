@@ -5,8 +5,8 @@ from resources.lib.helper import *
 #######################################################################################
 
 ADDON               = xbmcaddon.Addon()
-ADDONID             = ADDON.getAddonInfo('id').decode( 'utf-8' )
-CONFIGPATH          = os.path.join( xbmc.translatePath( "special://profile/" ).decode( 'utf-8' ), "addon_data", ADDONID, 'widget_addon_pathes.json').decode("utf-8")
+ADDONID             = ADDON.getAddonInfo('id')
+CONFIGPATH          = os.path.join( xbmc.translatePath( "special://profile/" ), "addon_data", ADDONID, 'widget_addon_pathes.json')
 
 #######################################################################################
 

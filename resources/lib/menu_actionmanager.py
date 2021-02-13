@@ -546,7 +546,7 @@ class MenuActionManager:
         return 0
 
     def loadPlaylist(self, playlist_type):
-        path_playlists = xbmc.translatePath(  'special://' + playlist_type + 'playlists' ).decode("utf-8")
+        path_playlists = xbmcvfs.translatePath(  'special://' + playlist_type + 'playlists' ).decode("utf-8")
         dirs, files = xbmcvfs.listdir(path_playlists)
         playlists = []
         exts = ['.xsp', '.m3u']

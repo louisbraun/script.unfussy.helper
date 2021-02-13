@@ -10,9 +10,9 @@ from resources.lib.widget_manager import WidgetManager
 ADDON               = xbmcaddon.Addon()
 ADDONID             = ADDON.getAddonInfo('id')
 CWD                 = ADDON.getAddonInfo('path')
-DEFAULTPATH         = xbmc.translatePath( os.path.join(CWD, 'resources','widgets_default.json') )
-CONFIGPATH          = os.path.join( xbmc.translatePath( "special://profile/" ), "addon_data", ADDONID, 'widgets.json')
-SKININCLUDEPATH     = xbmc.translatePath( os.path.join('special://skin', 'xml','Includes_Home_Widgetcontent.xml') )
+DEFAULTPATH         = xbmcvfs.translatePath( os.path.join(CWD, 'resources','widgets_default.json') )
+CONFIGPATH          = os.path.join( xbmcvfs.translatePath( "special://profile/" ), "addon_data", ADDONID, 'widgets.json')
+SKININCLUDEPATH     = xbmcvfs.translatePath( os.path.join('special://skin', 'xml','Includes_Home_Widgetcontent.xml') )
 
 #######################################################################################
 

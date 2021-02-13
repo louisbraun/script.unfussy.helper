@@ -636,7 +636,7 @@ class PlaylistSelector:
         return playlists[playlist_new]['name'] + '.' + playlists[playlist_new]['type']
 
     def loadPlaylist(self, playlist_type, playlist_subtype):
-        path_playlists = xbmc.translatePath(  'special://masterprofile/playlists/' + playlist_type ).decode("utf-8")
+        path_playlists = xbmcvfs.translatePath(  'special://masterprofile/playlists/' + playlist_type ).decode("utf-8")
         log('path_playlists %s' % path_playlists)
         dirs, files = xbmcvfs.listdir(path_playlists)
         playlists = []

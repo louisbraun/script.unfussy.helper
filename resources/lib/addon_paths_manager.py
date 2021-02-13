@@ -1,4 +1,4 @@
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcvfs
 import os
 import json
 from resources.lib.helper import *
@@ -6,7 +6,7 @@ from resources.lib.helper import *
 
 ADDON               = xbmcaddon.Addon()
 ADDONID             = ADDON.getAddonInfo('id')
-CONFIGPATH          = os.path.join( xbmc.translatePath( "special://profile/" ), "addon_data", ADDONID, 'widget_addon_pathes.json')
+CONFIGPATH          = os.path.join( xbmcvfs.translatePath( "special://profile/" ), "addon_data", ADDONID, 'widget_addon_pathes.json')
 
 #######################################################################################
 

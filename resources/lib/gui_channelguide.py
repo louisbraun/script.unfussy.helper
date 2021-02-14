@@ -243,7 +243,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         return (-1,-1)
 
     def switchChannel(self, channel_uid):
-        all_channels_loc = xbmc.getLocalizedString(19287).encode('utf-8')
+        all_channels_loc = xbmc.getLocalizedString(19287)
         pvr_backend = self.pvrBackendAddonId()
         if not pvr_backend: return
         pvr_url = 'pvr://channels/tv/' + all_channels_loc + '/' + pvr_backend + '_' + str(channel_uid) + '.pvr'
@@ -256,7 +256,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             addons = query_addons['result']['addons']
             for addon in addons:
                 if addon['enabled']:
-                    return addon['addonid'].encode('utf-8')
+                    return addon['addonid']
             return None
         except Exception:
             log('error querying pvr addon: %s' % Exception, WARNING )

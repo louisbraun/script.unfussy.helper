@@ -85,8 +85,8 @@ class WidgetsDataStore:
                 path += channels
                 str_name = 'runningat_name_' + str(runningat_found)
                 str_path = 'runningat_path_' + str(runningat_found)
-                xbmc.executebuiltin('Skin.SetString(' + str_name + ',' + name.encode('utf-8') + ')')
-                xbmc.executebuiltin('Skin.SetString(' + str_path + ',' + path.encode('utf-8') + ')')
+                xbmc.executebuiltin('Skin.SetString(' + str_name + ',' + name + ')')
+                xbmc.executebuiltin('Skin.SetString(' + str_path + ',' + path + ')')
                 runningat_found += 1
             if runningat_found == 3:
                 break

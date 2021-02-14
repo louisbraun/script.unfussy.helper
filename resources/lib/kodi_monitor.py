@@ -13,10 +13,10 @@ class KodiMonitor(xbmc.Monitor):
         pass
 
     def onNotification(self, sender, method, data):
-        #log('SchaumermalHelper_Monitor: sender %s - method: %s  - data: %s' % (sender, method, data))
+        #log('unfussy_Monitor: sender %s - method: %s  - data: %s' % (sender, method, data))
         try:
             mediatype = ''
-            data = json.loads(data.decode('utf-8'))
+            data = json.loads(data)
             if data and isinstance(data, dict):
                 if data.get('item'):
                     mediatype = data['item'].get('type', '')
@@ -26,7 +26,7 @@ class KodiMonitor(xbmc.Monitor):
                 if mediatype == 'episode':
                     self.refresh_widget('nextepisodes')
         except Exception as ex:
-            log('Exception in SchaumermalHelper_Monitor: %s' % ex)
+            log('Exception in unfussy_Monitor: %s' % ex)
 
 
     def refresh_widget(self, widget):

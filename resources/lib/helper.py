@@ -67,8 +67,8 @@ def json_call(method,properties=None,sort=None,query_filter=None,limit=None,para
 
     result = json.loads(result)
 
-    log('json-string: %s' % json_string, DEBUG)
-    log('json-result: %s' % result, DEBUG)
+    log('json_call json-string: %s' % json_string, DEBUG)
+    log('json_call json-result: %s' % result, DEBUG)
 
     return result
 

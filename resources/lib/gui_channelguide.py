@@ -251,7 +251,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         xbmc.executebuiltin(action)
 
     def pvrBackendAddonId(self):
-        query_addons = json_call('Addons.GetAddons', params={ 'type': 'xbmc.pvrclient' }, properties=['enabled'])
+        query_addons = json_call('Addons.GetAddons', params={ 'type': 'kodi.pvrclient' }, properties=['enabled'])
         try:
             addons = query_addons['result']['addons']
             for addon in addons:

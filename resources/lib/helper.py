@@ -328,8 +328,6 @@ def parse_movies(li, item):
     li_item.setProperty('totaltime', str(item['resume']['total']))
     li_item.setProperty('fanart_image', item['art'].get('fanart', ''))
     li_item.setArt(item['art'])
-    li_item.setThumbnailImage(item['art'].get('poster', ''))
-    li_item.setIconImage('DefaultVideo.png')
 
     hasVideo = False
 
@@ -400,8 +398,6 @@ def parse_tvshows(li, item):
     li_item.setProperty('WatchedEpisodes', watchedepisodes)
     li_item.setProperty('UnwatchedEpisodes', unwatchedepisodes)
     li_item.setArt(item['art'])
-    li_item.setThumbnailImage(item['art'].get('poster', ''))
-    li_item.setIconImage('DefaultVideo.png')
 
     li.append((item['file'], li_item, folder))
 
@@ -442,8 +438,6 @@ def parse_seasons(li, item):
     li_item.setArt(item['art'])
     li_item.setProperty('WatchedEpisodes', watchedepisodes)
     li_item.setProperty('UnwatchedEpisodes', unwatchedepisodes)
-    li_item.setThumbnailImage(item['art'].get('poster', ''))
-    li_item.setIconImage('DefaultVideo.png')
 
     if seasonnr == '0':
         li_item.setProperty('IsSpecial', 'true')
@@ -475,10 +469,7 @@ def parse_episodes(li, item):
                                             'mediatype': 'episode'})
     li_item.setProperty('resumetime', str(item['resume']['position']))
     li_item.setProperty('totaltime', str(item['resume']['total']))
-    li_item.setProperty('fanart_image', item['art'].get('item.fanart', ''))
     li_item.setArt(item['art'])
-    li_item.setThumbnailImage(item['art'].get('thumb', ''))
-    li_item.setIconImage('DefaultTVShows.png')
 
     hasVideo = False
 
@@ -502,9 +493,7 @@ def parse_cast(li,item):
     li_item = xbmcgui.ListItem(item['name'])
     li_item.setLabel(item['name'])
     li_item.setLabel2(item['role'])
-    li_item.setThumbnailImage(item.get('thumbnail', ''))
-    li_item.setIconImage('DefaultActor.png')
-
+    li_item.setArt(item['art'])
     li.append(('', li_item, False))
 
 def parse_broadcast(li, item):
@@ -556,7 +545,6 @@ def parse_genre(li,item):
                                             'dbid': str(item['genreid']),
                                             'Path': item['file']})
     li_item.setArt(item['art'])
-    li_item.setIconImage('DefaultGenre.png')
 
     li.append((item['file'], li_item, True))
 

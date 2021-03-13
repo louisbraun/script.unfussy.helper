@@ -119,7 +119,9 @@ class PluginContent:
         except Exception:
             log('getLastPlayedEpisode: No Last Played Episode found.')
             return 0
-        return last_played[0]
+        if (len(last_played) > 0):
+            return last_played[0]
+        return 0
 
     def getNextEpisode( self, tvshowid, last_played_episode ):
         season = last_played_episode['season'] - 1

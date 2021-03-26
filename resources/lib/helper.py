@@ -233,11 +233,12 @@ channel_properties = [
 ]
 
 channeldetail_properties = [
+                    'uniqueid',
                     'broadcastnext',
                     'broadcastnow',
                     'channel',
                     'channelnumber',
-                    'icon'
+                    'icon',
 ]
 
 broadcast_properties = [

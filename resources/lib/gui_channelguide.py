@@ -39,7 +39,6 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             self.channelgroups = query['result']['channelgroups']
         except Exception:
             return False
-        log("loaded groups: %s" % self.channelgroups, DEBUG)
         hide_all_channels = xbmc.getCondVisibility('Skin.HasSetting(hide_all_channels)')
         if hide_all_channels:
             allchannels = -1
@@ -50,7 +49,6 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
                     break
             if allchannels > -1:
                 del self.channelgroups[allchannels]
-        log("groups after hide_all_channels: %s" % self.channelgroups, DEBUG)
         return True
 
     def onInit( self ):
@@ -75,9 +73,9 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
             return
         group_index = self.list_channelgroups.getSelectedPosition()
         channel_index = self.list_channels.getSelectedPosition()
-        channel_uid = self.channelgroups[group_index]['channels'][channel_index]['broadcastnow']['channeluid']
-        xbmc.executebuiltin('SetProperty(noslide,true,10608)')
-        self.setProperty('noslide', 'true')
+        channel_uid = self.channelgroups[group_index]['channels'][channel_index]['uniqueid']
+        #xbmc.executebuiltin('SetProperty(noslide,true,10608)')
+        #self.setProperty('noslide', 'true')
         xbmc.sleep(10)
         self._close()
         self.switchChannel(channel_uid)
@@ -193,10 +191,10 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         self.channelgroups[self.group_index]['channellistitems'] = []
         utc_offset = getUtcOffset()
         for channel in self.channelgroups[self.group_index]['channels']:
+            listitem = xbmcgui.ListItem(channel['label'])
+            listitem.setArt({ 'icon': channel['icon'] })
+            listitem.setProperty('channelnumber', str(channel['channelnumber']))
             try:
-                listitem = xbmcgui.ListItem(channel['label'])
-                listitem.setArt({ 'icon': channel['icon'] })
-                listitem.setProperty('channelnumber', str(channel['channelnumber']))
                 listitem.setProperty('isrecording', str(channel['broadcastnow']['hastimer']))
                 listitem.setProperty('progress', str(int(channel['broadcastnow']['progresspercentage'])))
                 listitem.setProperty('now_title', channel['broadcastnow']['title'])
@@ -225,11 +223,12 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
                 listitem.setProperty('next_starttime', starttime_next.strftime('%H:%M'))
                 listitem.setProperty('next_endtime', endtime_next.strftime('%H:%M'))
                 listitem.setProperty('next_runtime', str(channel['broadcastnext']['runtime']))
-                if channel['channelnumber'] == self.active_channel_number:
-                    listitem.select(True)
-                self.channelgroups[self.group_index]['channellistitems'].append(listitem)
             except Exception:
-                log('no epg for channel: %s' % Exception, WARNING )
+                listitem.setProperty('now_title', '')
+                listitem.setProperty('next_title', '')
+            if channel['channelnumber'] == self.active_channel_number:
+                listitem.select(True)
+            self.channelgroups[self.group_index]['channellistitems'].append(listitem)
 
     def getActiveChannelNumber(self):
         channel_num = xbmc.getInfoLabel('VideoPlayer.ChannelNumberLabel')

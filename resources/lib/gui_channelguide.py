@@ -188,9 +188,13 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         self.list_channels.setPosition(x, y)
 
     def setChannelListItems(self):
+        log('---- CHANNELGUIDE ----: setting channel list items')
+        log('---- CHANNELGUIDE ----: channelgroups: %s' % self.channelgroups)
         self.channelgroups[self.group_index]['channellistitems'] = []
         utc_offset = getUtcOffset()
+        log('---- CHANNELGUIDE ----: setting channelgroup: %s' % self.group_index)
         for channel in self.channelgroups[self.group_index]['channels']:
+            log('------- CHANNELGUIDE -------: channel: %s' % channel)
             listitem = xbmcgui.ListItem(channel['label'])
             listitem.setArt({ 'icon': channel['icon'] })
             listitem.setProperty('channelnumber', str(channel['channelnumber']))
@@ -224,6 +228,7 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
                 listitem.setProperty('next_endtime', endtime_next.strftime('%H:%M'))
                 listitem.setProperty('next_runtime', str(channel['broadcastnext']['runtime']))
             except Exception:
+                log('------- CHANNELGUIDE EXCEPTION, resetting now and next -------')
                 listitem.setProperty('now_title', '')
                 listitem.setProperty('next_title', '')
             if channel['channelnumber'] == self.active_channel_number:

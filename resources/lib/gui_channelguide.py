@@ -188,49 +188,71 @@ class Gui_ChannelGuide( xbmcgui.WindowXMLDialog ):
         self.list_channels.setPosition(x, y)
 
     def setChannelListItems(self):
-        log('---- CHANNELGUIDE ----: setting channel list items')
-        log('---- CHANNELGUIDE ----: channelgroups: %s' % self.channelgroups)
         self.channelgroups[self.group_index]['channellistitems'] = []
         utc_offset = getUtcOffset()
-        log('---- CHANNELGUIDE ----: setting channelgroup: %s' % self.group_index)
+
         for channel in self.channelgroups[self.group_index]['channels']:
-            log('------- CHANNELGUIDE -------: channel: %s' % channel)
             listitem = xbmcgui.ListItem(channel['label'])
             listitem.setArt({ 'icon': channel['icon'] })
             listitem.setProperty('channelnumber', str(channel['channelnumber']))
-            try:
-                listitem.setProperty('isrecording', str(channel['broadcastnow']['hastimer']))
-                listitem.setProperty('progress', str(int(channel['broadcastnow']['progresspercentage'])))
-                listitem.setProperty('now_title', channel['broadcastnow']['title'])
-                listitem.setProperty('now_episodename', channel['broadcastnow']['episodename'])
-                listitem.setProperty('now_episodenum', str(channel['broadcastnow']['episodenum']))
-                listitem.setProperty('now_year', str(channel['broadcastnow']['year']))
-                listitem.setProperty('now_director', channel['broadcastnow']['director'])
-                listitem.setProperty('now_genre', ', '.join(channel['broadcastnow']['genre']))
-                listitem.setProperty('now_cast', channel['broadcastnow']['cast'])
-                listitem.setProperty('now_plot', channel['broadcastnow']['plot'])
-                starttime = getTimeFromString(channel['broadcastnow']['starttime'], '%Y-%m-%d %H:%M:%S', utc_offset)
-                endtime = getTimeFromString(channel['broadcastnow']['endtime'], '%Y-%m-%d %H:%M:%S', utc_offset)
-                listitem.setProperty('now_starttime', starttime.strftime('%H:%M'))
-                listitem.setProperty('now_endtime', endtime.strftime('%H:%M'))
-                listitem.setProperty('now_runtime', str(channel['broadcastnow']['runtime']))
-                listitem.setProperty('next_title', channel['broadcastnext']['title'])
-                listitem.setProperty('next_episodename', channel['broadcastnext']['episodename'])
-                listitem.setProperty('next_episodenum', str(channel['broadcastnext']['episodenum']))
-                listitem.setProperty('next_year', str(channel['broadcastnext']['year']))
-                listitem.setProperty('next_director', channel['broadcastnext']['director'])
-                listitem.setProperty('next_genre', ', '.join(channel['broadcastnext']['genre']))
-                listitem.setProperty('next_cast', channel['broadcastnext']['cast'])
-                listitem.setProperty('next_plot', channel['broadcastnext']['plot'])
-                starttime_next = getTimeFromString(channel['broadcastnext']['starttime'], '%Y-%m-%d %H:%M:%S', utc_offset)
-                endtime_next = getTimeFromString(channel['broadcastnext']['endtime'], '%Y-%m-%d %H:%M:%S', utc_offset)
-                listitem.setProperty('next_starttime', starttime_next.strftime('%H:%M'))
-                listitem.setProperty('next_endtime', endtime_next.strftime('%H:%M'))
-                listitem.setProperty('next_runtime', str(channel['broadcastnext']['runtime']))
-            except Exception:
-                log('------- CHANNELGUIDE EXCEPTION, resetting now and next -------')
+            if not 'broadcastnow' in channel or not 'broadcastnext' in channel:
+                #no epg available
                 listitem.setProperty('now_title', '')
                 listitem.setProperty('next_title', '')
+            else:
+                #now
+                if 'hastimer' in channel['broadcastnow']: 
+                    listitem.setProperty('isrecording', str(channel['broadcastnow']['hastimer']))
+                if 'progresspercentage' in channel['broadcastnow']:
+                    listitem.setProperty('progress', str(int(channel['broadcastnow']['progresspercentage'])))
+                if 'title' in channel['broadcastnow']:
+                    listitem.setProperty('now_title', channel['broadcastnow']['title'])
+                if 'episodename' in channel['broadcastnow']:
+                    listitem.setProperty('now_episodename', channel['broadcastnow']['episodename'])
+                if 'episodenum' in channel['broadcastnow']:
+                    listitem.setProperty('now_episodenum', str(channel['broadcastnow']['episodenum']))
+                if 'year' in channel['broadcastnow']:
+                    listitem.setProperty('now_year', str(channel['broadcastnow']['year']))
+                if 'director' in channel['broadcastnow']:
+                    listitem.setProperty('now_director', channel['broadcastnow']['director'])
+                if 'genre' in channel['broadcastnow']:
+                    listitem.setProperty('now_genre', ', '.join(channel['broadcastnow']['genre']))
+                if 'cast' in channel['broadcastnow']:
+                    listitem.setProperty('now_cast', channel['broadcastnow']['cast'])
+                if 'plot' in channel['broadcastnow']:
+                    listitem.setProperty('now_plot', channel['broadcastnow']['plot'])
+                if 'starttime' in channel['broadcastnow'] and 'endtime' in channel['broadcastnow']:
+                    starttime = getTimeFromString(channel['broadcastnow']['starttime'], '%Y-%m-%d %H:%M:%S', utc_offset)
+                    endtime = getTimeFromString(channel['broadcastnow']['endtime'], '%Y-%m-%d %H:%M:%S', utc_offset)
+                    listitem.setProperty('now_starttime', starttime.strftime('%H:%M'))
+                    listitem.setProperty('now_endtime', endtime.strftime('%H:%M'))
+                if 'runtime' in channel['broadcastnow']:
+                    listitem.setProperty('now_runtime', str(channel['broadcastnow']['runtime']))
+                #next
+                if 'title' in channel['broadcastnext']:
+                    listitem.setProperty('next_title', channel['broadcastnext']['title'])
+                if 'episodename' in channel['broadcastnext']:
+                    listitem.setProperty('next_episodename', channel['broadcastnext']['episodename'])
+                if 'episodenum' in channel['broadcastnext']:
+                    listitem.setProperty('next_episodenum', str(channel['broadcastnext']['episodenum']))
+                if 'year' in channel['broadcastnext']:
+                    listitem.setProperty('next_year', str(channel['broadcastnext']['year']))
+                if 'director' in channel['broadcastnext']:
+                    listitem.setProperty('next_director', channel['broadcastnext']['director'])
+                if 'genre' in channel['broadcastnext']:
+                    listitem.setProperty('next_genre', ', '.join(channel['broadcastnext']['genre']))
+                if 'cast' in channel['broadcastnext']:
+                    listitem.setProperty('next_cast', channel['broadcastnext']['cast'])
+                if 'plot' in channel['broadcastnext']:
+                    listitem.setProperty('next_plot', channel['broadcastnext']['plot'])
+                if 'starttime' in channel['broadcastnext'] and 'endtime' in channel['broadcastnext']:
+                    starttime_next = getTimeFromString(channel['broadcastnext']['starttime'], '%Y-%m-%d %H:%M:%S', utc_offset)
+                    endtime_next = getTimeFromString(channel['broadcastnext']['endtime'], '%Y-%m-%d %H:%M:%S', utc_offset)
+                    listitem.setProperty('next_starttime', starttime_next.strftime('%H:%M'))
+                    listitem.setProperty('next_endtime', endtime_next.strftime('%H:%M'))
+                if 'runtime' in channel['broadcastnext']:
+                    listitem.setProperty('next_runtime', str(channel['broadcastnext']['runtime']))
+
             if channel['channelnumber'] == self.active_channel_number:
                 listitem.select(True)
             self.channelgroups[self.group_index]['channellistitems'].append(listitem)

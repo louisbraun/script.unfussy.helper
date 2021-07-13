@@ -130,7 +130,7 @@ class WidgetManager:
                     'description': ADDON.getLocalizedString(30268),
                     'setlimit': False,
                     'path': 'plugin://script.service.gto?action=getcontent&ts=$INFO[Window(Home).Property(GTO.timestamp)]',
-                    'onclick': 'RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])',
+                    'onclick': 'RunPlugin(plugin://script.service.gto?action=info&item=$INFO[ListItem.Property(Item)])',
                     'styles': [
                         {
                             'label': ADDON.getLocalizedString(30265),
